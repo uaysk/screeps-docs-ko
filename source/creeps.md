@@ -1,49 +1,50 @@
-title: Creeps
+title: 크리프
 ---
 
-You build (spawn) units called **creeps** the same way as in other strategy games, but with one exception: you construct the "body" of a new creep out of 7 available **body part types**, the resulting body being a sequence up to 50 parts. It allows thousands of creep types and their roles: ordinary workers, huge construction machines able to build or repair a structure within a few cycles, weaselly couriers, heavy capacious trucks, fast and cheap scouts, well-equipped fighters with regeneration ability, etc. It may even be creeps resembling towers or fortresses for mining, defending, or seizing, with very little speed (couple of tiles per minute), but monstrous characteristics. Everything is up to you, your tactics and imagination.
+다른 전략 게임에서와 같이 **크리프**라고 불리는 유닛을 생성하지만, 7가지의 신체 부위 타입으로 새로운 크리프의 "몸"을 구성합니다. 결과적인 몸은 최대 50개의 부분으로 구성됩니다. 이는 수천 가지의 크립 타입과 역할을 허용하며, 평범한 노동자, 단순 건물 또는 수리에 사용되는 구조물(몇 번의 주기 안에), 영리한 특송기사, 무거운 수용력을 가진 트럭, 빠르고 저렴한 정찰자, 회복 능력과 장비를 잘 갖추고 있는 전투원 등이 포함됩니다. 크립은 방어나 채굴을 위해 망루 또는 요새와 같아서, 속도는 매우 느리지만(타일당 1분의 이동), 특징은 괴물입니다. 모든 것은 당신과 전략 및 상상력에 달려있습니다. ! [크기 조정](https://i.imgur.com/1z3LvZh.jpg)
 
-![](img/bodyparts.png)
+png)
 
-However, remember that any creep has a life cycle of 1500 game ticks (approx. 30-60 minutes depending on the tick duration). Then it "ages" and dies. So you not only need to control existing creeps but set up manufacturing and automatic control of superseding generations of your creeps as well.
+그러나 기억해야 할 것은 모든 크립은 1500게임 틱(대략적으로 틱 시간에 따라 30-60분)의 수명주기를 갖고 있다는 것입니다. 그러면 "노화"하여 사망합니다. 따라서 기존 크립을 제어할 필요가 있을 뿐만 아니라, 여러분의 크립을 대체하는 세대들에 대한 생산과 자동적인 제어를 설정해야 합니다.
 
-A standard spawn (structure) can only spawn regular creeps with the total cost of up to **300 energy units**. Spawning more expensive creeps requires a **spawn extension** in the room. Each extension can contain up to **50 extra energy units** that may be spent on creation of a creep. The exact location of extensions within a room does not matter, but they should be in the same room with the spawn (one extension can be used by several spawns). All the necessary energy should be in the spawn and extensions in the beginning of the creep creation.
+표준 소환(구조물)은 **최대 300 에너지 단위의 비용을 가진 일반 크립만을 소환할 수 있습니다**. 더 비싼 크립을 소환하기 위해서는 방 안에 **소환 확장**이 필요합니다. 각 확장은 크립 생성에 지출될 수 있는 **50개의 추가 에너지 단위까지** 포함할 수 있습니다. 확장들의 정확한 위치는 중요하지 않지만, 소환(하나의 확장이 여러 개의 소환으로 사용될 수 있음)과 같은 방에 있어야 합니다.
 
-The amount of extensions available for construction depends on the Room Controller in the room. Read more in [Global control](/control.html).
+모든 필요한 에너지는 생물체의 생성과 확장의 시작부분에 존재해야만 합니다. 확장을 할 수 있는 건설 가능한 양은 룸 컨트롤러에 따라 달라집니다. [글로벌 제어](/control.html)에서 더 읽어보세요.
 
-## Creeps Skills
+## 생물체의 기술
 
-Possible part types of a creep body:
+생물체 바디가 가질 수 있는 부품 유형:
 
-*   <code style="background: #333; color: #ffe56d;">WORK</code> – ability to harvest energy, construct and repair structures, upgrade controllers.
-*   <code style="background: #333; color: #a9b7c6;">MOVE</code> – ability to move.
-*   <code style="background: #333; color: #777;">CARRY</code> – ability to transfer energy.
-*   <code style="background: #333; color: #f93842;">ATTACK</code> – ability of short-range attack.
-*   <code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code> – ability of ranged attack.
-*   <code style="background: #333; color: #65fd62;">HEAL</code> – ability to heal others.
-*   <code style="background: #333; color: #b99cfb;">CLAIM</code> - ability to claim territory control.
-*   <code style="background: #333; color: #fff;">TOUGH</code> – "empty" part with the sole purpose of defense.
+* <code style="background: #333; color: #ffe56d;">WORK</code> – 에너지를 하벌스할 수 있으며, 구조물을 건설 및 복구하고 컨트롤러를 업그레이드할 수 있는 기능.
+* <code style="background: #333; color: #a9b7c6;">MOVE</code> – 움직일 수 있는 기능.
+* <code style="background: #333; color: #777;">CARRY</code> – 에너지를 전송할 수 있는 기능.
+* <code style="background: #333; color: #f93842;">ATTACK</code> – 근거리 공격을 할 수 있는 기능.
 
-The effectiveness of an ability depends on the amount of parts of a corresponding type. For example, a worker creep with 3 parts of the `WORK` type will work 3 times as effectively as a creep with only 1 `WORK `part. The same applies to all the other types and actions.
+* <code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code> – 원거리 공격 능력.
+* <code style="background: #333; color: #65fd62;">HEAL</code> – 다른 사람을 치유할 수 있는 능력.
+* <code style="background: #333; color: #b99cfb;">CLAIM</code> - 영토 제어를 요구하는 능력.
+* <code style="background: #333; color: #fff;">TOUGH</code> – "빈" 부분으로, 방어를 목적으로 합니다.
+
+능력의 효과는 해당 유형의 파트가 얼마나 되는지에 따라 달라집니다. 예를 들어, `WORK` 부분이 3개인 일꾼 크립은 단지 1개의 `WORK` 부분만 있는 크립보다 세 배나 더 효과적입니다. 모든 다른 유형 및 작업에도 동일하게 적용됩니다.
 
 ## Movement
 
-Each body part has its own physical weight: the more parts a creep bears, the more difficult it is for it to move. Each body part (except `MOVE`) generates fatigue points when the creep moves: 1 point per body part on roads, 2 on plain land, 10 on swamp. Each `MOVE` body part decreases fatigue points by 2 per tick. The creep cannot move when its fatigue is greater than zero.
+각 신체 부위는 고유의 물리적 무게를 지니며, 크립이 갖춘 부분의 수가 많을수록 이동하기가 더 어려워집니다. 각 신체 부위(MOVE를 제외한)는 크립이 움직일 때마다 피로 점수를 생성합니다: 도로에서는 1 포인트, 평지에서는 2 포인트, 늪지대에서는 10 포인트. `MOVE` 신체 부위마다 매 틱 당 피로 점수를 2 점씩 감소시킵니다. 크립의 피로가 0을 초과하면, 크립은 움직일 수 없습니다.
 
 {% note info %}
-To maintain the maximum movement speed of 1 square per tick, a creep needs to have as many `MOVE` parts as all the other parts of its body combined.
+최대 이동 속도인 1 사각에서 크립이 유지되려면, 모든 신체의 `MOVE` 부분을 합친 것보다 많은 수의 `MOVE` 부품이 필요합니다.
 {% endnote %}
 
-In other words, one `MOVE` part can move one other part one square per tick. If a creep has less `MOVE` parts, its movement will be proportionally slowed which is seen by the increasing fatigue.
+다시 말해, 한 개의 `MOVE` 부분은 또 다른 신체를 1 사각씩 움직일 수 있으며, 크립에 `MOVE` 부품이 적을 경우, 그 비례로 움직임이 느려지고 피로도는 증가합니다.
 
-It's worth noting that empty `CARRY` parts don't generate fatigue.
+비어있는 `CARRY` 부분은 피로도를 발생시키지 않습니다.
 
-Samples:
+샘플:
 
-*   Creep `[CARRY, WORK, MOVE]` will move 1 square per tick if it does not bear energy, and 1 square per 2 ticks if loaded.
-*   Creep `[TOUGH, ATTACK, ATTACK, MOVE, MOVE, MOVE]` will move at maximum speed of 1 square per tick.
-*   Creep `[TOUGH, ATTACK, ATTACK, MOVE, MOVE]` will move 1 square per 2 ticks because of rounding up.
+* `[CARRY, WORK, MOVE]`는 에너지가 없으면 1초에 1 사이즈만큼 이동하고 부하된 상태라면 2초에 1 사이즈만큼 이동합니다.
+* `[TOUGH, ATTACK, ATTACK, MOVE, MOVE, MOVE]`는 최대속도인 1초에 1 사이즈만큼 이동합니다.
+* `[TOUGH, ATTACK, ATTACK, MOVE, MOVE]`의 경우 1초에 2 사이즈만큼 이동하는데 라운딩 때문입니다.
 
-## Damage
+## 피해
 
-The total amount of hits a creep has depends of the amount of its body parts – 100 hits per each part. The order in which the parts were specified during the spawning of a creep also has a bearing. Under attack, the first parts to take hits are those specified first. Full damage to a part leads to complete disabling of it – the creep can no longer perform this function.
+크립의 피해 수치는 부품을 기준으로 계산됩니다. 100개의 피해가 한 부분당 발생합니다. 부품이 지정된 순서는 탄생할 때 크립 스폰과 함께 지정되어 있습니다. 공격을 받으면, 처음에 피해를 받은 부품이 우선적으로 손상됩니다. 한 부분의 완전한 피해는 그 기능을 더 이상 수행할 수 없게 합니다.

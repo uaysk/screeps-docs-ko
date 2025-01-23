@@ -1,103 +1,85 @@
 ---
-title: Third Party Tools
+제목: 타사 도구
 ---
+Screeps는 다양한 도구, 라이브러리 및 웹 애플리케이션을 구축하는 풍부한 타사 개발 커뮤니티를 보유하고 있습니다. 여기에 나와 있지 않은 도구가 있으면 이 문서를 편집해주세요.
 
-Screeps has a rich third party development community which have built a number of tools, libraries and web applications.
-If you have a tool not listed here, feel free to edit this article.
-
-{% note warn Use Caution %}
-
-*   Never give your password out to a third party.
-*   Many third party programs are built using unofficial APIs and may stop working at any time.
-*   All third party programs are run at your own risk- they are not reviewed by game devs and could cause unforeseen issues.
+{% note warn Caution Note %}
+* Screeps는 타사 개발자로부터 암호를 절대 받아서는 안 됩니다.
+* 많은 타사 프로그램은 공식 API가 아닌 것을 이용해 구축되어, 언제든지 작동을 멈출 수 있습니다.
+* 모든 타사 프로그램은 자신의 위험 부담 하에 실행되며, 게임 개발자가 검토하지 않았으므로 예기치 못한 문제를 일으킬 수 있습니다.
 {% endnote %}
 
-## Languages Support
+## 언어 지원
 
-You can set up an external transpiler to write your Screeps AI in another language.   
+외부 트랜스파일러를 설정해서 Screeps AI를 다른 언어로 작성할 수 있습니다.
 
 ### TypeScript
 
-*   [screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
-*   [typed-screeps](https://github.com/screepers/typed-screeps) is a set of TypeScript declarations to cover the Screeps API.
+* [screeps-typescript-starter](https://github.com/NightshadeGame/screeps-typescript-starter)
 
-### Python
+{% endtranslate %}
 
-*   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) is a platform you can use to play Screeps in Python.
+com/screepers/screeps-typescript-starter)은 TypeScript로 프로그래밍하고자 하는 사용자들을 위한 시작점입니다. * [typed-screeps](https://github.com/screepers/typed-screeps)은 Screeps API를 커버하는 TypeScript 선언문의 모음입니다. ### Python * [screeps-starter-python](https://github.com/daboross/screeps-starter-python/)은 Screeps를 플레이할 수 있는 플랫폼으로 Python을 사용할 수 있습니다. ### Rust * [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust)은 alpha 버전인 Screeps를 Rust로 플레이하기 위한 플랫폼입니다. ### Kotlin * [screeps-kotlin](https://github.com/exaV/screeps-kotlin)은 Kotlin으로 된 게임 스크립트의 예제입니다. * [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter)는 Kotlin으로 프로그래밍하고자 하는 사용자들을 위한 시작점입니다.
 
-### Rust
+* [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types)는 Screeps API를 커버하기위한 Kotlin 선언의 집합입니다.
 
-*   [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust) is a alpha-status platform you can use to play Screeps in Rust.
+## API 클라이언트
 
-### Kotlin
+Screeps API는 공식적인 것이 아니며 언제든지 변경될 수 있습니다. 이러한 클라이언트는 커뮤니티가 유지 관리하고 있으며 페이지의 많은 서비스와 프로그램을 생성하는 데 사용됩니다.
+*   [파이썬](https://github.com/screepers/python-screeps)
+*   [노드](https://github.com/screepers/node-screeps-api)
 
-* [screeps-kotlin](https://github.com/exaV/screeps-kotlin) is an example game script in Kotlin.
-* [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
-* [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
+## 앱
 
-## API Clients
+*   [스크리프스 모니터](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor)는 플레이어에게 계정 및 게임 통계뿐만 아니라 완전한 메시징 클라이언트와 마켓 히스토리를 제공하는 안드로이드 앱입니다. (더 이상 사용할 수 없음).
 
-The Screeps API is not official and may change at any time. These clients are maintained by the community and are used to generate many of the services and programs on this page.
+## 백업
 
-*   [python](https://github.com/screepers/python-screeps)
-*   [node](https://github.com/screepers/node-screeps-api)
+*   [screeps-backup](https://github.com/exav/screeps-backup) - 스크립트를 작성하여 게임을 자동으로 백업합니다.
 
+Screepers/screeps-backup은 메모리와 세그먼트를 백업하고 복원할 수 있는 간단한 유틸리티입니다.
 
-## Apps
+### 콘솔
 
-*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) is an Android app that provides players with account and game statistics, as well as a full messaging client and a market history. (No longer available).
+* [screeps_console](https://github.com/screepers/screeps_console)은 파이썬으로 구현된 독립형 대화식 콘솔입니다. 일반적인 콘솔 키보드 단축키를 지원하며 여러 내장 명령어가 포함되어 있습니다. 또한 빛과 어두운 테마가 포함됩니다. 비대화식 버전도 포함되어 있습니다.
 
+### 프로파일러
 
-## Backups
+* [gdborton's profiler](https://github.com/gdborton/screeps-profiler)는 Screeps API를 정의하므로 클로저가 이러한 호출을 다시 쓰지 않도록 하는 기능 래퍼 기반 프로파일러입니다.
 
-*   [screeps-backup](https://github.com/screepers/screeps-backup) is a simple backup and restore utility for memory and segments.
-
-
-## Consoles
-
-*   [screeps_console](https://github.com/screepers/screeps_console) is an interactive stand alone console built with python. It supports common console keyboard shortcuts, has a number of built in commands, and has light and dark themes. There is a non-interactive version that is also included.
-
-
-## Profilers
-
-*   [gdborton's profiler](https://github.com/gdborton/screeps-profiler) is a function wrapper based profiler that is extremely useful in finding performance issues.
-
-
-## Programming Tools
-
-*   [closure-compiler-externs](https://github.com/screepers/screeps-closure-compiler-externs) defines the Screeps API so that closure does not rewrite those calls.
-*   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) provides autocomplete data for the Screeps API.
-*   [screeps-server-mockup](https://github.com/Hiryus/screeps-server-mockup) private server package for unit tests.
-
+* ScreepsAutocomplete (https://github.com/Garethp/ScreepsAutocomplete): provides autocomplete data for the Screeps API.
+* screeps-server-mockup (https://github.com/Hiryus/screeps-server-mockup): a private server package for unit tests.
 
 ## Notifications
 
-*   [Screeps Notify](https://github.com/screepers/screeps_notify) provides an in game interface which lets players send messages to out of game services. It has a built in SMS system and can also support sending messages to arbitrary http endpoints.
-
+* Screeps Notify (https://github.com/screepers/screeps_notify): provides an in-game interface that allows players to send messages to out-of-game services. It has a built-in SMS system and can also support sending messages to arbitrary HTTP endpoints.
 
 ## Statistics
 
-Screeps runs constantly, and as a player it's not possible to watch everything that occurs. There are also issues which may show up when watching long term trends but not during the times which players are watching. For these reasons it's not surprising that the most popular applications are those used to track statistics.
+Screeps runs constantly, but as a player, it is not possible to watch everything that occurs. There are also issues that may show up when watching long-term trends, but not during the times players are watching.
 
-*   [ScreepsPlus Grafana](https://screepspl.us/services/grafana) is a services provided by [ags131]() that works with Grafana. In order to avoid password sharing it uses an agent to run and collect statistics.
-*   [screeps-stats](https://github.com/screepers/screeps-stats) stores console data and statistics in elasticsearch, making it accessible in kibana. This system utilizes segments to reduce the in game demand that storing lots of data can cause. This is a self hosted service.
-*   [screeps-grafana](https://github.com/screepers/screeps-grafana) is the original stats program. It uses Grafana as it's front it. Like screeps-stats this is a self hosted option.
-*   [screeps-ConsoleStats](https://github.com/screepers/screeps-ConsoleStats) provides stats without requiring an external service.
+이러한 이유로 통계를 추적하는데 사용되는 애플리케이션들이 가장 인기있는 것은 놀라운 일이 아니다. 
+*   [ScreepsPlus Grafana](https://screepspl.us/services/grafana)는 그라파나와 함께 작동하는 [ags131]()에서 제공하는 서비스이다. 암호를 공유하지 않도록 에이전트가 실행을 수행하고 통계를 수집한다.
+*   [screeps-stats](https://github.com/screepers/screeps-stats)는 엘라스틴에 콘솔 데이터와 통계를 저장하여 kibana에서 액세스 가능하게 한다. 많은 데이터를 저장할 때 발생할 수 있는 인게임의 요구를 줄이기 위해 세그먼트를 활용한다. 자체 호스팅된 시스템이다.
+*   [screeps-grafana](https://github.com/screepers/screeps-grafana)는 원래의 통계 프로그램이다. Grafana가 프론트엔드로서 사용된다. screeps-stats와 마찬가지로 자체 호스팅되는 옵션이다.
 
+*   [screeps-ConsoleStats](https://github.com/screepers/screeps-ConsoleStats)는 외부 서비스를 필요로하지 않고 통계를 제공합니다.
 
 ## Uploaders
 
-Pushing code to the server can be done using these plugins to common programs.
-
-*   [grunt-screeps](https://github.com/screeps/grunt-screeps) is written and maintained by the Screeps team. It used to upload code to the screeps server using [Grunt](https://gruntjs.com/).
-*   [gulp-screeps](https://github.com/screepers/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
-
+코드를 서버에 푸시하려면 일반적인 프로그램용 플러그인을 사용할 수 있습니다.
+*   [grunt-screeps](https://github.com/screepers/grunt-screeps)는 Screeps 팀이 작성하고 유지 관리합니다. [Grunt](https://gruntjs.com/)를 사용하여 screeps 서버에 코드를 업로드합니다.
+*   [gulp-screeps](https://github.com/screepers/gulp-screeps)는 [Gulp](http://gulpjs.com/)를 사용하여 screeps 서버에 코드를 업로드합니다.
 
 ## Web Client Extensions
 
-A javascript plugin extension, such as [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) and [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/), are needed to run these plugins.
+[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) 및 [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)과 같은 JavaScript 플러그인 확장을 통해 screeps Console에서 직접 스크립트를 실행할 수 있습니다.
 
-*   [Alliance Overlay](https://raw.githubusercontent.com/LeagueOfAutomatedNations/loan-browser-ext/master/dist/alliance-overlay.user.js) adds information from the [League of Automated Nations](http://www.leagueofautomatednations.com/map) to the game map.
-*   [Room Claim Assistant](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js) colors extends the "Owner Control Level" to make room selection easier. It adds the mineral to the view, turns two source rooms green, claimed or reserved rooms red, and "signed" rooms by other players orange.
-*   [Visible Room Tracker](https://github.com/Esryok/screeps-browser-ext/blob/master/visible-room-tracker.user.js) automatically sets a memory location with your current visible room, allow you to do things such as turn on visualizations only when needed.
-*   [ScreepsSC](https://github.com/stybbe/Screeps-SC) is a Chrome extension which adds new features and makes more information available on the Screeps website. Some features include making market history more readable, adding a battle radar, letting users view other player's creep names, and enhancing the leaderboard.
+자바스크립트가 필요합니다(https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/). 이 플러그인을 실행하려면 GreaseMonkey 또는 TamperMonkey와 같은 확장 기능이 필요합니다.
+
+* [동맹 오버레이](https://raw.githubusercontent.com/LeagueOfAutomatedNations/loan-browser-ext/master/dist/alliance-overlay.user.js)는 [자동화된 국가들의 동맹](http://www.leagueofautomatednations.com/map)에서 얻은 정보를 게임 지도에 추가합니다.
+* [방 점유 조수](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js)는 "소유자 제어 수준"을 확장하여 룸 선택을 쉽게 합니다. 광물을 보여주고, 두 개의 원천 방을 녹색으로, 점유 또는 예약된 방을 붉은색으로, 그리고 다른 플레이어에 의해 오렌지색으로 "서명"된 방을 표시합니다.
+* [보이는 방 추적기](https://github.com/Esryok/screeps-browser-ext/blob/master/visible-room-tracker.user.js)는 보이는 룸과 숨겨진 룸을 모두 표시합니다.
+
+js는 사용자의 현재 표시된 방과 함께 메모리 위치를 자동으로 설정하므로 필요한 경우에만 시각화를 켤 수 있습니다.
+* ScreepsSC(https://github.com/stybbe/Screeps-SC)는 Screeps 웹사이트에서 더 많은 정보를 제공하고 새로운 기능을 추가하는 Chrome 확장 프로그램입니다. 마켓 히스토리를 읽기 쉽게 만들고, 전투 레이더를 추가하며, 사용자가 다른 플레이어의 크립트 이름을 볼 수 있도록 하고, 순위표를 개선합니다.

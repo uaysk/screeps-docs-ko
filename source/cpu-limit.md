@@ -1,26 +1,23 @@
-title: How does CPU limit work
----
+**서버 기반(online mode)**인 경우 스크립트의 계산은 브라우저와는 전혀 상관이 없으며 게임 서버에서만 이루어집니다. 따라서 서버 기반 모드에서 CPU 시간을 제공하여 게임 서버의 CPU 리소스를 사용할 수 있도록 합니다. **/**/
 
-The Screeps game engine exists in two variants: browser-based (**Simulation** **mode**) and server-based (**online mode**). When you play in the Simulation mode, your scripts are executed by means of your browser only. The game API in the Simulation is the same as that on the server, but the server does not take part in game calculations.
+**게임 프로세스는 게임 루프, 시간, 틱(ticks)**에 대한 기사([Understanding game loop, time and ticks](/game-loop.html))에서 설명한 바와 같이, 게임 반복 또는 **틱**으로 나뉩니다.
 
-On the other hand, in the online mode calculations of your scripts do not affect your browser in any way and done on the servers only. In order to maintain them, we offer CPU time that allows you to use CPU resources of the game servers.
+각 틱 동안 게임 엔진은 모든 플레이어의 스크립트를 동시에 계산합니다. 그런 다음 계획된 활동들을 모두 실행합니다. 한 게임 틱의 지속 기간은 고정되어 있지 않습니다 - 모든 플레이어의 스크립트가 끝날 때까지 하나의 게임 틱이 종료됩니다.
 
-As described in the article [Understanding game loop, time and ticks](/game-loop.html), the game process is divided into game iterations, or **ticks**. During each tick, the game engine calculates each player's scripts concurrently. Then all the planned activities are executed. The duration of one game tick is not fixed - a tick ends when all scripts of all players have been executed to the end.
+## CPU 제한
 
-## CPU Limit
+실행 시간을 남용하는 것을 막기 위해 (이는 모든 플레이어의 게임 틱 지속 기간에 영향을 미칩니다), 우리는 **CPU 시간 제한** 개념을 도입했습니다. 이것은 하나의 틱 동안 게임 스크립트가 실행될 수 있는 시간(초단위)의 기간입니다. CPU 제한 100은 당신의 스크립트가 아직 일부 작업을 완료하지 않았더라도 실행이 종료되는 100ms의 시간을 말합니다. 귀하의 CPU 시간 제한은 귀하가 활성화된 구독으로 [글로벌 컨트롤 레벨](/control.html)에 있는지 여부에 따라 결정됩니다.
 
-In order to avoid abuse of execution time (which would affect the duration of the game tick for all players), we have introduced a concept of **CPU time limit**. This is a duration of time in milliseconds during which your game script is allowed to run within one tick. The CPU limit 100 means that after 100 ms execution of your script will be terminated even if it has not accomplished some work yet. Your CPU time limit depends on your [Global Control Level](/control.html) if you have active [subscription](/subscription.html), or fixed at 20 otherwise.
- 
-## Bucket
+HTML), 아니면 다른 곳에서 20으로 고정됩니다.
+## 버킷
 
-However, for your convenience, there may be a rollover of unused time limit for using in future ticks. This allows to carry out resource-hungry operations in bursts once per several ticks, thus exceeding the CPU limit set in your account provided your scripts have saved resources in the preceding ticks.
+그러나, 향후 티크에 사용할 수 있도록 미사용 시간 제한을 롤오버하여 편의를 제공할 수 있습니다. 이를 통해 몇 번의 티크마다 리소스 집약적인 작업을 일괄 처리함으로써 계정에 설정된 CPU 제한을 초과할 수 있습니다. 각 스크립트는 이전 티크에서 저장된 리소스가 있는 경우에만 가능합니다.
+! [CPU 버킷.png](https://i.imgur.com/cpu-bucket.png)
 
-![](img/cpu-bucket.png)
+스크립트가 티크당 계정의 CPU 기준 제한보다 적은 시간 동안 작업하는 경우, 발생된 차이가 누적 버킷에 추가됩니다. 최대 10,000 CPU까지 축적할 수 있습니다. 버킷에 누적량이 있는 경우, 스크립트는 티크당 500 CPU로 계정의 CPU 제한을 초과하여 실행될 수 있습니다.
 
-If a script during a tick worked less time than the account CPU baseline limit set, the resulting difference is added to a cumulative bucket. You may accumulate up to 10,000 CPU. If the bucket contains any accumulation, your script can overrun your CPU limit using up to 500 CPU per tick from the amount accumulated in the bucket.
+예를 들어, 계정 한도가 150으로 설정되어 있고 클릭마다 CPU를 100만 사용하면 CPU는 버킷에 저장됩니다. 매 5번의 클릭마다 50CPU씩 한도를 초과할 수 있습니다. 250 CPU의 일회성 버스트를 실행하거나 200번의 클릭마다 한 번씩 500 CPU의 일련의 버스트를 실행할 수 있습니다.
 
-For example, if your account limit is set to 150 and you consume only 100 CPU per tick, then 50 CPU per tick will go to the bucket. You will be able to execute either a one-time burst exceeding the limit by 250 CPU every 5 ticks, or a series of 20 bursts for 500 CPU each once per 200 ticks.
+속성 `[Game. cpu. tickLimit](/api/#Game. cpu)`은 누적된 값을 기준으로 현재 클릭에서 사용할 수 있는 CPU를 반영합니다. 버킷이 가득 찼을 때 `[Game. cpu. tickLimit](/api/#Game. cpu)`은 500으로 설정됩니다. 누적된 값이 고갈되면 감소하기 시작합니다. `[Game. cpu. tickLimit]`(/api/#Game. cpu) `계정 한도`, 즉 속성 `[Game. cpu. limit]`(/api/#Game. cpu)보다 클 수 없습니다.
 
-The property [`Game.cpu.tickLimit`](/api/#Game.cpu) reflects the amount of CPU that you can spend on a current tick given the accumulation. As soon as the [`Game.cpu.bucket`](/api/#Game.cpu) is full, [`Game.cpu.tickLimit`](/api/#Game.cpu) equals 500. It will start decreasing only after the accumulation is depleted. [`Game.cpu.tickLimit`](/api/#Game.cpu) can never be less than your account limit, i.e the [`Game.cpu.limit`](/api/#Game.cpu) property.
-
-Therefore, you can plan your limit usage by postponing some calculations (for example pathfinding operations) to the moment when you are able to do them in bursts by exceeding the limit.
+따라서 일부 계산(예를 들어 경로 탐색 작업)을 제한을 초과하여 버스트 방식으로 처리할 수 있는 순간까지 연기함으로써 제한 사용량을 계획할 수 있습니다.

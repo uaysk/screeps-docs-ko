@@ -1,30 +1,29 @@
-title: Respawning
----
+## 다시 생성하기
 
-In Screeps, the game is never over, and a global win of any player is hardly ever possible. The game is devised in such a way that you can always continue playing, gain revenge, change landscape, save your achievements, etc.
+Screeps에서는 게임이 끝나지 않으며, 모든 플레이어의 글로벌 승리가 거의 불가능합니다. 게임은 항상 계속할 수 있고, 복수를 하고, 풍경을 변화시키고, 업적을 저장할 수 있도록 고안되었습니다.
 
-## Initial spawn
+## 초기 스폰
 
-The game begins from your appearance on the map. You can choose any room with a neutral Controller and at least one energy source, although we recommend to choose a room with two sources and inside one of the [Start Areas](/start-areas.html). So, after analyzing the landscape, place your spawn on the map:
+게임은 지도에서 나타나는 곳에서 시작됩니다. 중립의 컨트롤러와 적어도 하나의 에너지원이 있는 방을 선택할 수 있지만, 두 개의 소스가 있고 [시작 영역](/start-areas. html) 내부 중 한 곳에서 게임을 시작하는 것이 좋습니다. 그러므로 풍경을 분석한 후, 지도에서 스폰 위치를 선택합니다:
 
-![](img/CreateSpawn.png)
+![CreateSpawn.png](attachment:CreateSpawn.png)
 
-Now the room is in [Safe mode](/defense.html) during **20,000 game ticks** (approx. 15** **hours depending on the tick duration). Use this period to explore the room, develop, plan defenses, and prepare for capturing territory and resources. 
+이제 방은 [방어 모드](/defense.html)로 20,000게임 틱(대략적으로 틱 시간에 따라 15시간) 동안 진행됩니다.
 
-When the spawn is placed, it has 300 energy units first. For your safety, the spawn is constantly refilled with a small amount of 1 energy unit per tick, so that you won't stuck without energy. 
+이 기간을 이용해서 방을 탐색하고, 전략을 개발하고, 방어를 계획하며, 영토와 자원을 점령할 준비를 하세요.
 
+생성된 에너지가 300씩 시작합니다. 안전을 위해 생성된 에너지는 1씩 늘어나며, 계속 채워집니다. 그래서 에너지가 부족하지 않도록 합니다.
 {% note info %}
-A spawn stops generating energy when there are 300 energy units in the spawn itself or any other spawns and extensions in the room.
-{% endnote %}
+생성된 에너지는 방 안에 300의 에너지 또는 다른 모든 방과 확장품이 있을 때까지 계속해서 공급됩니다. {% endnote %}
 
-## Respawn
+## 리스폰 (Respawn)
 
-If you have chosen hastily and now want to move to a more interesting room, or if another player forced you to do so, you can restart the game with the help of the **Respawn** feature. It has a 180 seconds timeout. You will also need to respawn if your rooms are captured by an enemy and you don't have an extra foothold with creeps to build a spawn. 
+서둘러 선택한 것이 실수였고 더 흥미로운 방으로 이동하거나, 다른 플레이어가 강제로 당신을 쫓아내는 경우에는 게임을 **리스폰**을 통해서 재시작할 수 있습니다. 타임아웃은 180초입니다.
 
-![](img/Respawn.png)
+당신은 방을 적에게 점령당하고 부화를 위한 다른 발판이 없는 경우 부활해야 합니다.  
 
-![](img/RespawnConfirm.png)
+! [Respawn.png](https://user-images.githubusercontent.com/6578921/13400317/e12f0d3a-4c14-4cad-b3af-a23203dd91f0.png)
 
-As you have already known from the article [Control](/control.html), a player's **Global Control Level** (GCL) remains the same after the Respawn. So, if you have a right to claim 3 rooms, you will never lose it.  
+! [RespawnConfirm.png](https://user-images.githubusercontent.com/6578921/13400317/45e830fc-f3ea-4a6d-b8d8-7c913d6b7f6a.png)
 
-Always try to control as many rooms as your GCL allows. It will allow your colony develop at the maximum speed. Even after a respawn from scratch, a high GCL will let you find a place with many free rooms and instantly claim some into your domain for parallel development.
+당신은 이미 기사 [통제](/control.html)로부터 알고있듯이, 플레이어의 **글로벌 컨트롤 레벨(GCL)** 은 부활 후에도 동일하게 유지됩니다.  따라서 3개의 방을 주장할 권리가 있는 경우, 이것을 결코 잃지 않습니다.   항상 통제할 수 있는 최대한 많은 방에서 귀하의 식민지를 개발하도록 노력하세요. 심지어 처음부터 부활하더라도, 높은 GCL은 많은 자유로운 방을 가진 장소를 찾아내고 평행한 개발을 위해 이것의 일부를 즉시 당신의 영역에 주장하도록 허용할 것입니다.

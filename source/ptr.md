@@ -1,32 +1,13 @@
-title: Public Test Realm (PTR)
----
+이것은 Public Test Realm (PTR)을 한국어로 번역해준 결과입니다. 원문은 다음과 같습니다.
 
-The Public Test Realm is a stand-alone game server with its own world data, players' scripts, memory, and settings. It has been created for two purposes:
+Public Test Realm (PTR)
 
-1) testing changes and new features upcoming to the main server,  
-2) providing players with a platform to safely test their scripts in a multi-room environment.
+**PTR를 사용하여 코드를 오랫동안 저장하지 마십시오!**
 
----
+PTR에서 새로운 계정을 등록하는 것이 차단되었습니다. 데이터가 주 서버에서 PTR으로 복사된 후마다 기존의 플레이어 계정도 복사됩니다. CPU 구독은 기본적으로 비활성화됩니다. [주문 페이지](https://screeps.com/ptr/#!/order)에서 활성화 버튼을 클릭하면 PTR이 재설정될 때까지 무료 PTR 구독을 사용할 수 있습니다.
 
-<div style="text-align: center">
+PTR에서는 모든 구조물의 건설비가 1 에너지 단위로만 계산되고, 컨트롤러 업그레이드는 1000 에너지 단위가 필요합니다. 테스트 목적으로 필요한 인프라를 빠르게 구축할 수 있습니다.
 
-<p><strong style="font-size: 20px; background: #eee; padding: 10px 40px;">[ENTER](https://screeps.com/ptr/)</strong></p>
+[grunt-screeps](/commit)를 사용하는 경우에도 동일합니다.
 
-<p>[API Reference](http://docs-ptr.screeps.com/api/)</p> 
-</div>
-
----
-
-Both World Mode and Simulation Mode are available on PTR. All the game world data is copied from the main server to PTR every Monday at 0:00 UTC, and old PTR data is then wiped (including players’ scripts). **Don’t use PTR for prolonged storage of your code!**
-
-Registering new accounts on PTR is blocked. Each time after data is copied from the main server into PTR, existing players accounts are copied as well. Your account CPU subscription is deactivated by default. Click the Activate button on the [order page](https://screeps.com/ptr/#!/order) to enable your free PTR subscription until the next PTR reset.
-
-Please take note that construction of any structures on the PTR costs only 1 energy unit and the controller upgrade requires 1000 energy units. It allows quick creation of infrastructure you need for testing purposes.
-
-If you use [grunt-screeps](/commit.html) for committing your scripts from a local machine, you can provide <code style="white-space: nowrap;">ptr: true</code> option in order to commit your code to the PTR.
-
-Engine code changes from the PTR are periodically deployed to the `ptr` branch of the private server package on npm, so you can use this command to run it locally:
-
-```
-npm install screeps@ptr
-``` 
+HTML) 로컬 시스템에서 스크립트를 커밋하려면 코드를 PTR에 커밋하기 위해 <code style="white-space: nowrap;">ptr: true</code> 옵션을 제공할 수 있습니다.

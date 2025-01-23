@@ -1,38 +1,39 @@
-title: Introduction
----
+## 스크립스는 어떤 게임인가요?
 
-## What kind of game is Screeps
+스크립스는 대규모 다중 사용자 온라인 실시간 전략 게임입니다. 각 플레이어는 **단일 영구적인 세계**에서 자신의 식민지를 건설할 수 있습니다. 이 세계는 모든 플레이어가 공유합니다. 그러한 식민지는 **자원**을 채굴하고, **유닛**을 구축하며, **영토**를 정복할 수 있습니다. 더 많은 영토를 정복함에 따라 게임 세계에서의 영향력이 커지고 식민지를 확장하는 능력도 커집니다. 그러나, 여러 플레이어가 동일한 영토를 목표로 할 수 있기 때문에 많은 노력이 필요합니다.
 
-Screeps is a massive multiplayer online real-time strategy game. Each player can create their own colony in a **single persistent world** shared by all the players. Such a colony can mine **resources**, build **units**, conquer **territory**. As you conquer more territory, your influence in the game world grows, as well as your abilities to expand your footprint. However, it requires a lot of effort on your part, since multiple players may aim at the same territory.
+스크립스는 **프로그래밍 기술**을 보유한 사람들을 위해 개발되었습니다. 다른 RTS 게임과 달리, 스크립스의 유닛은 적극적으로 프로그램하지 않는 이상 참여하지 않고도 사건에 반응할 수 있습니다.
 
-Screeps is developed for people with **programming skills**. Unlike some other RTS games, your units in Screeps can react to events without your participation – provided that you have programmed them properly. And, unlike other MMO, you do not have to play Screeps constantly to play well. It is quite enough just to check once in a while to see if everything goes well.
+그리고, 다른 MMO와는 달리, 잘하기 위해서 항상 Screeps를 플레이할 필요는 없습니다. **방**을 가끔씩 확인하여 모든 것이 제대로 돌아가고 있는지 확인하는 것으로 충분합니다.
 
-## Game world
+## 게임 세계
 
-The game world consists of interconnected **rooms**. A room is a closed space 50x50 cells in size. It may have from 1 to 4 exits to other rooms. The world is separated into **shards** which are connected by intershard portals. You can consider shards a Z-axis of the world.
+게임 세계는 상호 연결된 **방**들로 구성됩니다. **방**은 50x50 크기의 닫힌 공간입니다. 다른 방으로 나갈 수 있는 출구가 1~4개 있을 수 있습니다. 세계는 **샤드(shard)**로 분리되며, 서로 다른 샤드를 연결하는 샤드간 포털이 존재합니다. 샤드는 Z-축으로 볼 수 있습니다.
 
-![](img/shards.png)
+! [샤드 예시](img/shards.png)
 
-Each room landscape is unique. The view of each room is generated procedurally and consists of three types of surface:
+각 **방**의 지형은 고유합니다. 매번 방을 보는 것이 절차적으로 생성되며, 세 가지 종류의 표면으로 구성됩니다:
+*   **평지** – 이동 비용이 2인 단순한 땅.
+*   **늪지대**는 이동 비용을 10으로 증가시킵니다.
+*   **장벽**은 모든 크립의 이동을 막습니다.
 
-*   **Plain land** – simple ground with a movement cost of 2.
-*   **Swamps** increase a movement cost to 10.
-*   **Walls** block movement of all creeps. 
+다음의 시설을 통해 방의 지형을 사용자 정의할 수 있습니다:
+* **도로**는 이동 비용을 1로 감소시킵니다. 도로는 움직임으로 인해 열화되며, 보수가 필요합니다.
+* **플레이어들이 만든 벽**은 자연 방벽과 달리 크립들에 의해 공격받고 파괴될 수 있습니다.
+* **요새화된 벽들**은 당신의 방어입니다. 오직 당신의 크립만이 요새화된 벽 안에서 움직일 수 있으며, 요새화된 세포 안에 있는 크립은 요새가 파괴될 때까지 다른 것을 공격할 수 없습니다. 요새화된 벽들도 매 게임주기마다 열화되어 보수가 필요합니다.
 
-You can customize the room landscape with the help of the following facilities:
+게임의 시작에서, 당신은 정착할 수 있는 게임 세계의 구역 안에 있는 자유로운 방들 중 하나에 새로운 식민지를 위한 장소를 선택할 수 있습니다.
 
-*   **Roads** decrease a movement cost to 1. Roads deteriorate due to movement and require repair.
-*   **Constructed walls** can be created by players. Unlike natural walls, they may be attacked and destroyed by creeps.
-*   **Ramparts** are your defenses. Only your creeps may move inside your ramparts. Besides, a creep inside a rampart cell cannot be attacked until the rampart is destroyed (though it can attack others). Ramparts deteriorate with each game cycle and require repair.
+번역: 처음으로 설정한 스폰 후, 방은 **안전 모드**로 들어갑니다. 좋은 방어를 구축하거나 적당히 시간을 보내세요. 그렇지 않으면 어떤 플레이어도 식민지를 파괴할 수 있습니다!
 
-In the beginning of the game, you are free to choose the place for your new colony in one of the free rooms inside the zone of the game world available for settlement. After your first spawn is set up, your room will be in **safe mode**. Use this time to create good defenses, or any player will be able to destroy your colony!
+## 여러분의 식민지
 
-## Your colony
+**![colony-center.png](img/colony-center.png)**
 
-**![](img/colony-center.png)**
+**에너지 공급원**은 게임에서 가장 중요한 자원입니다. 이것은 일꾼 크립으로 수확할 수 있습니다. 에너지의 양은 제한적이지만, 300게임 틱마다 한 번씩 자동으로 채워집니다.
 
-**Energy sources** are the main game resource. They can be harvested by worker creeps. The amount of energy in a source is limited, but resumes once in 300 game ticks.
+**스폰**은 여러분의 식민지입니다. 수확한 에너지를 모아서 유닛을 만드는데 사용할 수 있습니다. 한 방에 3개의 스폰만 가질 수 있으므로, 한 방에 세 개의 스폰을 설치하면 해당 방을 완전히 장악합니다. 그러나 여러분은 모든 방에 스폰을 둘 수 있습니다.
 
-**Spawns** are your colony centers. They can accumulate mined energy and use it to create your units. There may be no more than 3 spawns in a room. Hence, by building 3 spawns in a room you actually conquer it. You can have multiple spawns totally in all your rooms though.
+각각의 스폰은 기본적인 유닛만 생산할 수 있습니다.
 
-A spawn itself can build only basic units. In order to build more complex ones, you have to construct one or more spawn **extensions**. Read more about that in the next article.
+**spawn 확장**을(를) 하나 이상 구성해야만 더 복잡한 것을 만들 수 있습니다. 자세한 내용은 다음 문서에서 읽어보십시오.

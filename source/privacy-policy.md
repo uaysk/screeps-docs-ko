@@ -1,14 +1,13 @@
-title: Privacy Policy
----
+Screeps, LLC(이하 "당사")는 온라인 게임인 Screeps를 통해 서비스를 제공하고 개선하기 위해 귀하가 계정에 입력한 개인 및 비개인 정보를 수집합니다. 그러나 이 정보는 절대로 타사에 제공되지 않습니다. 당사는 수집하는 개인 정보의 보안, 완전성 및 기밀성을 보호하기 위한 모든 합리적인 안전 조치를 취합니다.
 
-Screeps, LLC (hereinafter referred to as "We") through its online game Screeps collects personal and non-personal information about you that you provide in your account in order to provide and improve its services, but never hands this information to any third parties. We maintain all reasonable safeguards to protect the security, integrity and privacy of the personal information we collect.
+귀하의 정보 보안은 당사에게 매우 중요합니다. 따라서 웹사이트의 가능한 침해에 대비하여 모든 합리적인 예방 조치를 취하지만, 어떠한 웹사이트나 인터넷 전송도 완벽하게 안전하다고 보장할 수 없습니다. 따라서 당사는 권한이 없는 접근, 해킹, 데이터 손실 또는 기타 침해가 발생하지 않을 것이라고 보장할 수 없습니다.
 
-While the security of your information is very important to us, and we take all reasonable precautions against possible breaches of our websites, no website or Internet transmission is completely secure. So, we cannot guarantee that unauthorized access, hacking, data loss, or other breaches will never occur. We urge you to take steps to keep your personal information safe by memorizing your password or keeping it in a safe place.
+우리는 귀하가 비밀번호를 암기하거나 안전한 장소에 보관함으로써 개인 정보를 안전하게 지키도록 권고합니다. 
 
-We do not store our users' passwords in any way. We store only their hashes.
+우리는 어떤 방법으로도 사용자의 비밀번호를 저장하지 않습니다. 우리는 해시만을 저장합니다. 
 
-We do not collect any personal information from the payments you make on our websites. This is done solely by the third-party service provider Xsolla. You may read its Privacy Policy here: [http://xsolla.com/privacypolicy/](http://xsolla.com/privacypolicy/).
+당사는 웹 사이트에서 발생한 결제와 관련된 개인 정보를 수집하지 않습니다. 이는 전적으로 제3자 서비스 공급업체 Xsolla가 수행합니다. [http://xsolla. com/privacypolicy/](http://xsolla. com/privacypolicy/)에서 개인 정보 보호 정책을 읽어볼 수 있습니다. 
 
-As most websites, we collect information automatically, and it is stored in the form of log files. This information includes such data as Internet Protocol (IP) addresses, browser type and language, operating system, website activity, the number of "hits" a webpage is getting, and other relevant information which may be later combined with your personal and non-personal information.
+대부분의 웹 사이트와 마찬가지로, 당사는 자동으로 정보를 수집하며 그 정보는 로그 파일 형태로 저장됩니다.
 
-We may use cookies, scripts, and other technologies to improve the use of our websites, products and services. You can disable or delete cookies or set your browser to alert you when cookies are being sent to your computer. We may use local storage to store content information and preferences of our users. We may collect certain "device-identifying data" about your personal computer or mobile device to create a digital identifier of your device in order to optimize our services for it.
+이 정보에는 IP(Internet Protocol) 주소, 브라우저 유형 및 언어, 운영체제, 웹사이트 활동, 웹페이지의 "히트" 수와 같은 데이터 등 개인과 비개인적 정보가 포함되며 나중에 개인과 비개인적 정보를 결합할 수 있습니다. 당사는 쿠키, 스크립트 및 기타 기술을 사용하여 웹사이트, 제품 및 서비스의 이용을 개선할 수 있습니다. 당신은 쿠키를 비활성화하거나 삭제하고 브라우저에서 쿠키가 귀하의 컴퓨터로 전송되는지 알려줄 수 있습니다. 당사는 개인용 컴퓨터나 모바일 장치에 대한 "기기 식별 데이터"를 수집하여 귀하의 기기에 맞게 서비스를 최적화할 수 있는 디지털 식별자를 만들 수 있습니다.

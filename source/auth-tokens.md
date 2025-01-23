@@ -1,94 +1,51 @@
 ---
-title: Authentication Tokens
+title: 인증 토큰
 ---
+Screeps에는 공개된 웹 API가 문서화되어 있지 않습니다. 그러나, 문서화되지 않은 서버가 클라이언트와의 통신에 사용하는 HTTP endpoint를 원할 경우, 괜찮습니다. 이 프로세스를 더 쉽게 해줄 목적으로 **인증 토큰** 시스템을 개발했습니다.
+정규 웹 브라우저 클라이언트는 백그라운드에서 몇몇 요청들, 예를 들어 로그인 요청을 확인하기 위해 Google Invisible reCAPTCHA를 사용합니다. Steam 클라이언트는 유사한 목적으로 암호화된 로컬 Steam 연결을 사용합니다. 외부 도구를 개발하고 있고 인간의 상호작용이 필요하지 않은 경우, CAPTCHA를 풀지 않아도 되는 요청들을 위해 지속적인 auth token을 생성할 수 있습니다. 이러한 토큰은 한번 생성되고 만료시간이 없습니다.
 
-Screeps doesn't have a documented public Web API. However, if you want to use undocumented HTTP endpoints which our server uses to communicate with the client, that's fine. We've developed an **authentication tokens** system to make this process easier for you.
+하지만 API 요청은 속도 제한이 있습니다.
 
-The regular web browser client uses Google Invisible reCAPTCHA to validate some requests in the background, including the sign-in request. The Steam client uses an encrypted local Steam connection for similar purpose. If you're building some external tool that doesn't require human interaction, you can generate a persistent auth token to make requests without solving CAPTCHA. Such token is generated once and doesn't have expiration time. 
+1. 웹소켓 방식으로 보내는 요청: 요청당 최대 50개의 객체를 받을 수 있고, 한 번에 하나의 연결만 허용됩니다.
+2. JSON-RPC 방식으로 보내는 요청: 1분에 최대 150개의 요청을 받습니다.
+3. JSON 방식으로 보내는 요청: 10초당 최대 20개의 요청을 받고, 한 번에 하나의 연결만 허용됩니다.
 
-## Using Auth Tokens
+속도 제한을 피하려면 몇 분마다 몇 초씩 요청을 보내야 합니다.
 
-You can generate an auth token in your [account settings](https://screeps.com/a/#!/account/auth-tokens):
-
-![](img/auth_tokens.png) 
-
-A token with **full access** will have the same access scope as your usual authentication credentials. You can also limit the access scope to **selected endpoints**, **websockets events** and **memory segments**.
-
-There are two identically valid ways to use this token:
-
-* Set `X-Token` header in your request:
-   ```
-   X-Token: 3bdd1da7-3002-4aaa-be91-330562f54093
-   ```     
-   
-* Add `_token` query param to the URL:
-   ```
-   https://screeps.com/api/user/name?_token=3bdd1da7-3002-4aaa-be91-330562f54093
-   ```
- 
-## Rate Limiting
-
-Regular requests made by browser or Steam client are **NOT** rate limited.
-
-However, all requests authenticated by auth tokens are subject to rate limiting rules. When rate capacity is exceeded, you will get `429` HTTP code in response:
-
+그러나, 인증된 auth token에 의한 모든 요청은 속도 제한 규칙의 적용을 받습니다. 속도 용량이 초과되면, 응답으로 `429` HTTP 코드를 수신합니다:
 ```
 HTTP/1.1 429 Too Many Requests
-
-Rate limit exceeded, retry after 51243ms
 ```
+세 개의 HTTP 헤더는 정보 제공 목적으로 설정되며, 사용자가 속도 제한을 처리하는데 사용할 수 있습니다:
 
-Three HTTP header are set for informational purposes which you can use to handle rate limiting on your side:
-
-| Header Name | Description |
+| 헤더 이름 | 설명 |
 |-|-|
-| `X-RateLimit-Limit` | The maximum number of requests you're permitted to make per limit window. |
-| <nobr>`X-RateLimit-Remaining`</nobr> | The number of requests remaining in the current rate limit window. |
-| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |
+| `X-RateLimit-Limit` | 제한 창에서 사용자가 실행할 수 있는 최대 요청의 개수. |
+| `X-RateLimit-Remaining` | 현재 속도 제한 창에서 남은 요청 개수. |
+| `X-RateLimit-Reset` | 현재 속도 제한 창이 UTC 에포크 초(epoch seconds)로 리셋되는 시간.
+
+To do this, send the following header with your request:
 
 ```
-X-RateLimit-Limit: 60
-X-RateLimit-Remaining: 35
-X-RateLimit-Reset: 1514539728
+X-RateLimit-Bypass: true
 ```
 
-There are two levels of rate limiting: global and per-endpoint, shown in the table below:
+This will temporarily disable rate limiting for that particular token, allowing human interaction during development. However, keep in mind that this should be done sparingly and only when necessary to avoid overloading our system.
 
-| Endpoint | Rate |
-|----------|------|
-| **Global**   | **120 / minute** |
-| GET /api/game/room-terrain | 360 / hour |
-| POST /api/game/map-stats | 60 / hour |
-| GET /api/user/code | 60 / hour |
-| POST /api/user/code | 240 / day
-| POST /api/user/set-active-branch | 240 / day |
-| GET /api/user/memory | 1440 / day |
-| POST /api/user/memory | 240 / day |
-| GET /api/user/memory-segment | 360 / hour |
-| POST /api/user/memory-segment | 60 / hour |
-| POST /api/user/console | 360 / hour | 
-| GET /api/game/market/orders-index | 60 / hour |
-| GET /api/game/market/orders | 60 / hour |
-| GET /api/game/market/my-orders | 60 / hour |
-| GET /api/game/market/stats | 60 / hour |
-| GET /api/game/user/money-history | 60 / hour |
+이를 위해 사용자에게 `https://screeps.com/a/#! /account/auth-tokens/noratelimit?token=XXX` 링크를 제공하고 해당 페이지로 이동하도록 합니다. 사용자가 "Proceed" 버튼을 클릭하면, 2시간 동안 무료 제한 없이 토큰이 부여됩니다. 
 
-### Turning rate limiting off
+! [token-noratelimit.png](https://minimalist.gitbook.io/screeps-node-js-client/contents/assets/img/token-norate limit.png)
 
-If you develop a third-party tool that requires human interaction, you can integrate a special flow to turn off rate limiting on a specific token. In order to do so, you must provide the user with a link `https://screeps.com/a/#!/account/auth-tokens/noratelimit?token=XXX`, which they should navigate to. When the user clicks the "Proceed" button on the page, the token will be granted with a 2-hour period with no rate limits.
-
-![](img/token-noratelimit.png) 
-
-If your tool is web-based, you can embed this page in an `<iframe>` and listen to a `screepsTokenSuccess` message:
+웹 기반의 도구는 이 페이지를 `<iframe>`에 임베드하고 `screepsTokenSuccess` 메시지를 수신할 수 있습니다.
 
 ```javascript
 window.addEventListener('message', (event) => {
     if(event.data === 'screepsTokenSuccess') {
         console.log("We are not rate limited now!");
-    }   
+    }
 }, false);
 ```
 
-Please note that this page uses Google Invisible reCAPTCHA, so that it cannot be used automatically.
+이 페이지는 Google Invisible reCAPTCHA를 사용하므로 자동으로 사용할 수 없습니다.
 
-You can query info on a specific token (including its unlimited period timer) using the endpoint `https://screeps.com/api/auth/query-token?token=XXX`.
+특정 토큰(무제한 기간 타이머 포함)에 대한 정보를 쿼리하려면 `https://screeps.com/api/auth/query-token?token=XXX` 엔드포인트를 사용할 수 있습니다.

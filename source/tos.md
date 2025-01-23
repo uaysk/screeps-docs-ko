@@ -1,46 +1,34 @@
-title: Terms of Service
----
+게임 Screeps(이하 "게임")의 모든 사용은 귀하인 사용자와 Screeps, LLC(이하 "Screeps") 간의 다음과 같은 서비스 약관에 따라 적용됩니다. 본인은 본 계약서에 기재된 모든 조건을 읽고 이해했으며, 동의함을 확인합니다.
 
-Any and all uses of the game Screeps (hereinafter referred to as the "Game") are governed by the following Terms of Service between you, the user, and Screeps, LLC (hereinafter referred to as the "Screeps"). You hereby acknowledge that you have read and understand all the terms and conditions in this agreement and agree to be bound by them.
+**소프트웨어**
 
-**SOFTWARE**
+귀하는 게임을 브라우저를 통해 사용할 수 있습니다. 웹사이트 Screeps.com("웹사이트")에 계정을 등록하고 액세스하여 게임을 플레이할 수 있습니다. 귀하는 비상업적인 엔터테인먼트 목적으로만 소유한 컴퓨터나 합법적인 통제권 아래 있는 컴퓨터에서 게임을 사용할 수 있는 양도가 불가능하고 비독점적인 라이선스를 받습니다.
 
-You may use the computer software obtained via your browser for the sole purpose of playing the Game by registering for and accessing an account on the website Screeps.com ("Website"). You hereby accept a limited, non-transferable, non-exclusive license to use the Game on one or more computers owned by you or under your legitimate control, solely for non-commercial entertainment purposes only.
+게임은 온라인으로만 플레이할 수 있습니다. 게임을 하는 데 필요한 지속적인 인터넷 연결(스크립스가 제공하지 않음)이 필요하며, 게임을 하는 데 필요한 모든 하드웨어, 소프트웨어 또는 기타 제품이나 서비스와 관련된 모든 비용과 경비에 대해 귀하가 책임을 집니다. 스크립스는 (필요한 것은 아니지만) 게임에 대한 업데이트와 수정을 귀하의 동의 없이 배포하거나 제공할 수 있습니다. 이러한 모든 업데이트 및 수정은 게임의 일부입니다. 스크립스는 어떤 업데이트도 제공할 의무가 없으며, 게임을 운영하거나 지원을 계속 유지할 의무도 없습니다.
 
-The Game is only playable online. A persistent Internet connection (which is not supplied by the Screeps) is required to play, and you are responsible for all costs and expenses associated with acquiring any hardware, software, or other products or services required to play the Game.
+**제한 사항**
 
-The Screeps may (but is not required to) deploy or provide updates and modifications to the Game without your knowledge and consent. All such updates and modifications are part of the Game.
+다음을 하지 않기로 동의합니다:
 
-The Screeps is not obliged to supply any updates or even to operate or continue support of the Game for an indefinite period.
+*  게임, 서버 및 리소스를 사용하여 명예훼손, 중상모략, 해로운, 괴롭히는, 위협적인 또는 기타 불법 자료나 다른 제3자의 사생활이나 홍보권을 침해하거나 침범하는 스캔들을 발행합니다.
+*  게임, 서버 및 리소스의 정상적인 작동을 방해, 손상 또는 위반할 수 있는 소프트웨어나 하드웨어입니다.
+*  게임에서 하나 이상의 계정을 등록합니다.
+*  게임에서 의도된 목적이 아닌 목적으로 서버 리소스와 게임 메커니즘을 사용합니다.
+*  게임에 유리하기 위해 버그, 결함, 취약점을 이용합니다.
 
-**LIMITATIONS**
+당신은 이러한 조항의 위반과 귀하의 부정행위나 불법 활동으로 인해 계정을 즉각적으로 종료시키고 계정에 있는 모든 예치금을 몰수당할 수도 있다는 것을 이해합니다.
+**결제**
 
-You agree not to:
+멀티플레이어 온라인 모드(“월드 모드”)에서 게임하기 위한 요금을 지불하려면 시간당 구독권을 구입해야 합니다. 구독권이 활성화된 후에, 귀하는 해당 가입 기간 내에 온라인 모드를 사용할 수 있는 권리를 얻습니다.
+모든 결제는 빌링 회사 Xsolla Inc. 에서 처리합니다. The Screeps는 지불 관련 문제를 통제하지 않으며, 결제, 청구 등과 같은 주제에 대해 어떠한 지원이나 도움도 제공하지 않습니다. 귀하는 The Screeps가 아닌 Xsolla (https://help.xsolla.com)에 연락해야 하며, 필요한 모든 지원이나 도움을 받아야 한다는 것에 동의합니다.
 
-*   Use the Game, its servers and resources to publish any libelous, defamatory, harmful, harassing, threatening or other illegal material, material that is scandalous or that violates or invades the rights of privacy or publicity of any third party.
-*   Do anything that may break, damage, or interfere with the normal operation of the Game, its servers and resources, whether software or hardware.
-*   Register more than one account to play the Game.
-*   Use server resources and game mechanics for the purposes not intended in the Game.
-*   Use any bugs, flaws, and vulnerabilities to your benefit.
+**환불(REFUNDS)**
 
-You understand that violation of any of these clauses, as well as any harmful or illegal activity on your part, may lead to instant termination of your account and forfeiting all your deposits in your account.
+결제 후 처음 3일 이내에만 환불을 받으실 수 있습니다. 그 후 구독은 사용한 것으로 간주되며 환불이 불가능합니다. 웹사이트의 계정 관리 섹션에서 언제든지 다음 기간의 구독을 취소하실 수 있습니다. **변경(CHANGES)**
 
-**PAYMENTS**
+스크립스는 이 웹사이트의 통보를 통해 본 서비스 약관을 변경할 수 있습니다. 언제든지 웹사이트에서 변경 사항을 검토하실 수 있습니다. 본 서비스 약관의 수정 후에도 게임을 계속 사용하시면 변경된 조건에 동의한 것으로 간주됩니다. **저작권 및 적용법**
 
-You pay for playing in the multiplayer online mode (“World Mode”) by purchasing a subscription for the time period. After your subscription is activated, you obtain the right to use the online mode within the subscription period.
+본 게임은 러시아 연방, 국제 협약 및 기타 법률의 저작권법에 의해 보호됩니다.
 
-All payments are processed by the billing company Xsolla Inc. The Screeps does not control any payment related issues and does not provide any support or help regarding payments, billing, etc. You understand and agree that you should [contact Xsolla](https://help.xsolla.com) for any support or help you need regarding these issues.
-
-**REFUNDS**
-
-You are eligible for a refund within the first 3 days after the payment was made. Then your subscription is considered used, and a refund is impossible. You can cancel renewing your subscription for the next period at any time in the Account Management section of the Website.
-
-**CHANGES**
-
-The Screeps may modify these Terms of Service upon notification on this Website. You may always review any changes on the Website. Your continued use of the Game after a modification of the Terms will be deemed as your acceptance of any modified terms.
-
-**COPYRIGHT AND GOVERNING LAW**
-
-The Game is protected by the copyright laws of the Russian Federation, international treaties and conventions, and other laws. All copyrights, trademark rights, and all other intellectual rights related to the Game belong to Screeps, LLC. You acknowledge and agree that you have no interest, monetary or otherwise, in any feature or content contained in the Game.
-
-All disputes that cannot be settled according these Terms of Service shall be governed by the laws of the Russian Federation.
+모든 저작권, 상표권 및 게임과 관련된 기타 지적 재산권은 Screeps, LLC에 속합니다. 귀하는 본인이 게임의 특징이나 내용에 대해서 금전적으로나 그렇지 않으나 어떤 것도 보유하고 있지 않다는 점을 인정하고 동의합니다.
+서비스 이용약관에 따라 해결될 수 없는 모든 분쟁은 러시아연방의 법률에 의거하여 처리되어야 합니다.
