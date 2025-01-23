@@ -1,33 +1,21 @@
 # RoomObject
-
-Any object with a position in a room. Almost all game objects prototypes are derived from `RoomObject`.
-
+객체의 위치가 방 내에 있는 경우
+게임 객체의 거의 모든 프로토타입은 `RoomObject`로부터 파생됩니다.
 {% api_property effects array %}
-Applied effects, an array of objects with the following properties:
+적용된 효과, 다음 속성을 갖는 개체의 배열:
 
 {% api_method_params %}
 effect : number
-Effect ID of the applied effect. Can be either natural effect ID or Power ID.
+적용된 효과의 효과 ID. 자연 효과 ID 또는 Power ID일 수 있습니다.
 ===
-level (optional) : number 
-Power level of the applied effect. Absent if the effect is not a Power effect.
+level (선택 사항) : number
+전력 수준의 적용된 효과. 효과가 Power 효과가 아닌 경우에는 부재합니다.
 ===
 ticksRemaining : number
-How many ticks will the effect last.
+얼마나 많은 틱이 남았는지입니다.
 {% endapi_method_params %}
 
 {% api_property pos '<a href="#RoomPosition">RoomPosition</a>' %}
- 
+객체의 위치를 방 내에서 나타내는 개체입니다.
 
-
-An object representing the position of this object in the room.
-
-
-
-{% api_property room '<a href="#Room">Room</a>' %}
-
-
-
-The link to the Room object. May be undefined in case if an object is a flag or a construction site and is placed in a room that is not visible to you.
-
-
+<a id="Room" href="#Room"><strong>Room</strong></a> 객실로 연결되는 링크입니다. 깃발이나 공사 현장인 개체가 표시되지 않은 객실에 있을 경우 값이 undefined일 수 있습니다.

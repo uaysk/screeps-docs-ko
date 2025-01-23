@@ -1,43 +1,32 @@
-# Source
- 
-An energy source object. Can be harvested by creeps with a `WORK` body part.
+에너지 공급원 개체. `WORK` 신체부를 가진 크립이 수확할 수 있습니다.
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Energy amount</strong></td>
-        <td>4000 in center rooms<br />3000 in an owned or reserved room<br />1500 in an unreserved room</td>
+        <td><strong>에너지 양</strong></td>
+        <td>중앙 방의 경우 4000, 소유하고 있거나 예약된 방의 경우 3000, 비예약 방의 경우 1500</td>
     </tr>
     <tr>
-        <td><strong>Energy regeneration</strong></td>
-        <td>Every 300 game ticks</td>
+        <td><strong>에너지 회복</strong></td>
+        <td>300번의 게임 틱마다</td>
     </tr>
     </tbody>
 </table>
-
 {% page inherited/RoomObject.md %}
 
 {% api_property energy 'number' %}
 
-
-
-The remaining amount of energy.
-
-
+남아있는 에너지 양.
 
 {% api_property energyCapacity 'number' %}
 
-
-
-The total amount of energy in the source.
-
-
+공급원의 총 에너지 양.
 
 {% api_property id 'string' %}
 
 
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+객체를 고유하게 식별합니다. <a href="#Game. getObjectById"><code>Game. getObjectById</code></a> 메서드를 사용하여 해당 <code>id</code>로 객체 인스턴스를 검색할 수 있습니다.
 
 
 
@@ -45,6 +34,4 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>
 
 
 
-The remaining time after which the source will be refilled.
-
-
+재료가 채워질 때까지 남은 시간입니다.

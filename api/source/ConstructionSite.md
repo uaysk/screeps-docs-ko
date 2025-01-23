@@ -1,79 +1,42 @@
-# ConstructionSite
+# 건설 현장
 
-A site of a structure which is currently under construction. A construction site can be created using the 'Construct' button at the left of the game field or the [`Room.createConstructionSite`](#Room.createConstructionSite) method.
+현재 건축 중인 구조물의 위치입니다. 게임 화면의 좌측에 있는 '건설' 버튼을 눌러서 혹은 [`Room. createConstructionSite`](#Room. createConstructionSite) 메소드를 이용해 건설 현장을 만들 수 있습니다.
 
-To build a structure on the construction site, give a worker creep some amount of energy and perform [`Creep.build`](#Creep.build) action.
+이미 지어진 구조물에 노동자 생물체에게 일정량의 에너지를 공급하고 [`Creep. build`](#Creep. build) 액션을 수행해야만 건설 현장에서 구조물을 짓는데 성공할 수 있습니다.
 
-You can remove enemy construction sites by moving a creep on it.
+적의 건설 현장은 노동자 생물체를 이용하여 제거할 수 있습니다.
 
-{% page inherited/RoomObject.md %} 
+{% page inherited/RoomObject. md %}
 
 {% api_property id string %}
- 
 
+고유한 객체 식별자입니다. 적합한 생물체를 이용해 건설 현장을 제거할 수 있습니다.
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
-
-
+getObjectById 메서드는 id로 개체 인스턴스를 검색합니다.
 
 {% api_property my boolean %}
-
-
-
-Whether this is your own construction site.
-
-
-
+이것이 자신의 건설 현장인지 여부입니다.
 {% api_property owner object %}
-
-
-
-An object with the structure’s owner info containing the following properties:
-
+구조물의 소유주 정보가 포함된 개체를 가리키는 프로퍼티:
 {% api_method_params %}
 username : string
-The name of the owner user.
+소유자 사용자 이름.
 {% endapi_method_params %}
 
-
 {% api_property progress number %}
-
-
-
-The current construction progress.
-
-
-
+현재 건설 진행률입니다.
 {% api_property progressTotal number %}
-
-
-
-The total construction progress needed for the structure to be built.
-
-
-
+구조물을 지을 때 필요한 총 건설 진행률입니다.
 {% api_property structureType string %}
-
-
-
-One of the <code>STRUCTURE_*</code> constants.
-
-
+<code>STRUCTURE_*</code> 상수들 중 하나를 가리킵니다.
 
 {% api_method remove '' A %}
 
 
 
-Remove the construction site.
+### 반환값
 
-
-
-### Return value
-
-One of the following codes:
+다음 코드 중 하나:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this construction site, and it's not in your room.
-{% endapi_return_codes %}
-
-
+OK | 작업이 성공적으로 예약되었습니다.
+ERR_NOT_OWNER | 귀하는 해당 건설 현장의 소유자가 아니며, 해당 객실에도 없습니다.

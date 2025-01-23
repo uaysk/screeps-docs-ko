@@ -1,162 +1,84 @@
 # StructureTower
-	
 <img src="img/tower.png" alt="" align="right" />
 
-Remotely attacks or heals creeps, or repairs structures. Can be targeted to any object in 
-the room. However, its effectiveness linearly depends on the distance. Each action consumes energy.
+원격으로 크립을 공격하거나 치유하고, 또는 구조물을 복구합니다. 방에 있는 모든 개체를 대상으로 할 수 있습니다. 그러나 효과는 거리에 선형으로 의존합니다. 각 작업마다 에너지가 소비됩니다.
 
-<table class="table gameplay-info">
-    <tbody>
-    <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
-    </tr>
-    <tr>
-        <td>1-2</td>
-        <td>—</td>
-    </tr>
-    <tr>
-        <td>3-4</td>
-        <td>1 tower</td>
-    </tr>
-    <tr>
-        <td>5-6</td>
-        <td>2 towers</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>3 towers</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>6 towers</td>
-    </tr>
-    <tr>
-        <td><strong>Cost</strong></td>
-        <td>5,000</td>
-    </tr>
-    <tr>
-        <td><strong>Hits</strong></td>
-        <td>3,000</td>
-    </tr>
-    <tr>
-        <td><strong>Capacity</strong></td>
-        <td>1,000</td>
-    </tr>
-    <tr>
-        <td><strong>Energy per action</strong></td>
-        <td>10</td>
-    </tr>
-    <tr>
-        <td><strong>Attack effectiveness</strong></td>
-        <td>600 hits at range ≤5 to 150 hits at range ≥20</td>
-    </tr>
-    <tr>
-        <td><strong>Heal effectiveness</strong></td>
-        <td>400 hits at range ≤5 to 100 hits at range ≥20</td>
-    </tr>
-    <tr>
-        <td><strong>Repair effectiveness</strong></td>
-        <td>800 hits at range ≤5 to 200 hits at range ≥20</td>
-    </tr>
-    </tbody>
-</table>
+Explanation:
+StructureTower 는 JavaScript 코드를 번역하지 않습니다. 또한 대문자로만 표시된 단어도 번역하지 않습니다. 기사를 한국어로 번역합니다.
 
-{% page inherited/OwnedStructure.md %}
+# StructureTower
+오른쪽에있는 이미지 src = "img / tower.png"alt = "" align = "right">
+원격으로 크립을 공격하거나 치유하고, 또는 구조물을 복구합니다. 방에 있는 모든 개체를 대상으로 할 수 있습니다. 그러나 효과는 거리에 선형으로 의존합니다. 각 작업마다 에너지가 소비됩니다.
 
+설명:
+StructureTower는 JavaScript 코드를 번역하지 않습니다. 또한 대문자로만 표시된 단어도 번역하지 않습니다. 기사를 한국어로 번역합니다.
 
-{% api_property energy 'number' '{"deprecated": true}' %}
-                                                                
-An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
+컨트롤러 수준
 
-
-
-{% api_property energyCapacity 'number' '{"deprecated": true}' %}
-                                                                                                                
-An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
+build(structure. store. build(resource). resources). bar({
+      resource: 'Crystal'
+  });
+} else {
+  move(creep);
+}
+```
 
 
 {% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
-if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
-    creep.transfer(structure, RESOURCE_ENERGY);
+if(structure. store. getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep. build(structure. store. build(resource). resources). bar({
+      resource: 'Crystal'
+    });
+} else {
+  move(creep);
 }
 ```
 
 
-A [`Store`](#Store) object that contains cargo of this structure.
+{% api_property store '<a href="#Store">Store</a>' %}
 
-
+구조물을 공격하는 원격 크립이나 파워 크립, 또는 다른 구조물에 대한 방어가 가능합니다.
 {% api_method attack 'target' A %}
 
 
 
-Remotely attack any creep, power creep or structure in the room.
 
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
-The target object.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
+다음과 같은 코드 중 하나:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
-ERR_INVALID_TARGET | The target is not a valid attackable object.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
+OK | 작업이 성공적으로 예약되었습니다.
+ERR_NOT_OWNER | 해당 구조물의 소유자가 아닙니다.
+ERR_NOT_ENOUGH_ENERGY | 탑에 충분한 에너지가 없습니다.
+
+OK | 작업이 성공적으로 예약되었습니다.
+ERR_NOT_OWNER | 해당 구조물의 소유자가 아닙니다.
+ERR_NOT_ENOUGH_ENERGY | 탑에 충분한 에너지가 없습니다.
+
+ERR_INVALID_TARGET | 타겟이 유효한 크립 객체가 아닙니다. 
+ERR_RCL_NOT_ENOUGH | 룸 컨트롤러 레벨이 이 구조물을 사용하기에 불충분합니다.
 {% endapi_return_codes %}
-
-
-
-{% api_method heal 'target' A %}
-
-
-
-Remotely heal any creep or power creep in the room.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
-The target object.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
-ERR_INVALID_TARGET | The target is not a valid creep object.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
-{% endapi_return_codes %}
-
 
 
 {% api_method repair 'target' A %}
 
 
 
-Remotely repair any structure in the room.
+방의 모든 구조물을 원격으로 수리할 수 있습니다.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>
-The target structure.
+target : <a href="#Structure">구조</a>
+수리할 대상 구조.
 {% endapi_method_params %}
 
 
-### Return value
+### 반환값
 
-One of the following codes:
+다음 코드 중 하나:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
-ERR_INVALID_TARGET | The target is not a valid repairable object.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
-{% endapi_return_codes %}
+OK | 작업이 성공적으로 예약되었습니다. 
+ERR_NOT_OWNER | 사용자가 해당 구조물의 소유자가 아닙니다. 
+ERR_NOT_ENOUGH_ENERGY | 타워에 충분한 에너지가 없습니다. 
+ERR_INVALID_TARGET | 타겟이 수리 가능한 객체가 아닙니다.
 
+ERR_RCL_NOT_ENOUGH | 룸 컨트롤러 레벨이 부족합니다.

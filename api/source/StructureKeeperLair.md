@@ -2,12 +2,12 @@
 
 <img src="img/keeperLair.png" alt="" align="right" />
 
-Non-player structure. Spawns NPC Source Keepers that guards energy sources and minerals in some rooms. This structure cannot be destroyed.
+플레이어가 아닌 구조물. 일부 방에서 에너지원과 미네랄을 보호하는 NPC Source Keepers를 소환합니다. 이 구조물은 파괴할 수 없습니다.
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Spawning time</strong></td>
+        <td>배치 시간</td>
         <td>300</td>
     </tr>
     </tbody>
@@ -17,6 +17,4 @@ Non-player structure. Spawns NPC Source Keepers that guards energy sources and m
 
 {% api_property ticksToSpawn 'number' %}
 
-Time to spawning of the next Source Keeper.
-
-
+다음 Source Keeper를 소환하기까지의 시간.

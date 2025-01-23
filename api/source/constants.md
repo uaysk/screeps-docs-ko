@@ -1,5 +1,3 @@
-# Constants
+# 상수
 
-All the following constant names are available in the global scope:
-
-{% constants %}
+다음의 상수 이름은 모두 전역 범위에서 사용할 수 있습니다.

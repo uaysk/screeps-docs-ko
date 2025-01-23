@@ -1,91 +1,64 @@
-# Structure
+# 구조
 
-The base prototype object of all structures.
+모든 구조의 기본 프로토타입 객체이다.
 
-{% page inherited/RoomObject.md %}
+{% page inherited/RoomObject. md %}
 
 {% api_property hits 'number' %}
 
-
-
-The current amount of hit points of the structure.
-
+구조물의 현재 힐 포인트 수이다.
 
 
 {% api_property hitsMax 'number' %}
 
-
-
-The total amount of hit points of the structure.
-
+구조물의 총 힐 포인트 수이다.
 
 
 {% api_property id 'string' %}
 
-
-
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
-
+고유한 객체 식별자이다. <a href="#Game. getObjectById"><code>Game. getObjectById</code></a> 메서드를 사용해서 해당 <code>id</code>로 객체 인스턴스를 검색할 수 있다.
 
 
 {% api_property structureType 'string' %}
 
-
-
-One of the <code>STRUCTURE_*</code> constants.
-
+<code>STRUCTURE_*</code> 상수 중 하나이다.
 
 
 {% api_method destroy '' A %}
 
+즉시 이 구조물을 파괴한다.
 
-
-Destroy this structure immediately.
-
-
-
-### Return value
-
+반환 값
 One of the following codes:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure, and it's not in your room.
-ERR_BUSY | Hostile creeps are in the room.
+OK | The operation has been scheduled successfully. 
+ERR_NOT_OWNER | You are not the owner of this structure, and it's not in your room. 
+ERR_BUSY | Hostile creeps are in the room. 
 {% endapi_return_codes %}
 
 
 
 {% api_method isActive '' 2 %}
-
-
-
 Check whether this structure can be used. If room controller level is insufficient, then this method will return false, and the structure will be highlighted with red in the game.
 
 
 
 ### Return value
-
 A boolean value.
 
 {% api_method notifyWhenAttacked 'enabled' A %}
+Toggle auto notification when the structure is under attack.
 
-
-
-Toggle auto notification when the structure is under attack. The notification will be sent to your account email. Turned on by default.
-
+알림이 계정 전자 메일로 발송됩니다. 기본값으로 켜져 있습니다.
 {% api_method_params %}
 enabled : boolean
-Whether to enable notification or disable.
+알림을 사용하도록 설정할지 여부를 선택합니다.
 {% endapi_method_params %}
 
+### 반환값
 
-### Return value
-
-One of the following codes:
+다음 코드 중 하나:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
-{% endapi_return_codes %}
-
-
+OK | 성공적으로 예약되었습니다.
+ERR_NOT_OWNER | 이 구조의 소유자가 아닙니다.
+ERR_INVALID_ARGS | <code>enable</code> 인수는 부울 값이 아닙니다.

@@ -2,137 +2,46 @@
 
 <img src="img/nuke.png" alt="" align="right" />
 
-Launches a nuke to another room dealing huge damage to the landing area. Each launch has a 
-cooldown and requires energy and ghodium resources. Launching creates a 
-[Nuke](#Nuke) object at the target room position which is visible to any player until it is landed. 
-Incoming nuke cannot be moved or cancelled. Nukes cannot be launched from or to novice rooms. Resources placed into a StructureNuker cannot be withdrawn.
+다른 방에 nuke를 발사하여 착륙 지역에 엄청난 피해를 줍니다. 각 발사마다 재사용 대기시간이 있으며 에너지와 ghodium 자원이 필요합니다. 목표 방 위치에 [Nuke](#Nuke) 객체를 생성하여 플레이어가 볼 수 있도록 착륙할 때까지 보관됩니다. 들어오는 nuke는 이동이나 취소가 불가능합니다. Nuke은(는) 초급 방에서 출발하거나 도착할 수 없습니다. StructureNuker로 넣은 자원은 회수할 수 없습니다.
 
-<table class="table gameplay-info">
-    <tbody>
-    <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
-    </tr>
-    <tr>
-        <td>1-7</td>
-        <td>—</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>1 nuke</td>
-    </tr>
-    <tr>
-        <td><strong>Cost</strong></td>
-        <td>100,000</td>
-    </tr>
-    <tr>
-        <td><strong>Hits</strong></td>
-        <td>1,000</td>
-    </tr>
-    <tr>
-        <td><strong>Range</strong></td>
-        <td>10 rooms</td>
-    </tr>
-    <tr>
-        <td><strong>Launch cost</strong></td>
-        <td>300,000 energy<br /> 5,000 ghodium</td>
-    </tr>
-    <tr>
-        <td><strong>Launch cooldown</strong></td>
-        <td>100,000 ticks</td>
-    </tr>
-    <tr>
-        <td><strong>Landing time</strong></td>
-        <td>50,000 ticks</td>
-    </tr>
-    <tr>
-        <td><strong>Effect</strong></td>
-        <td>All creeps, construction sites and dropped resources in the room are removed immediately, even inside ramparts. Damage to structures:
+컨트롤러 레벨: 1-7<br/> —<br/>8<br/> 1명의 녹스 전용<br/><br/>비용: 10만<br/>타격: 1,000<br/>사정거리: 10개 방<br/>발사 비용: 30만 에너지, 5천 골디움<br/>발사 재충전 대기시간: 10만 틱<br/>착륙 시간: 5만 틱<br/>효과: 방어구에도 영향을 미치는 일체의 파괴적인 요소를 가진 상대로부터, 한 턴 동안 보호를 받은 모든 벌레류, 건축 현장과 방 내부에 떨어진 자원을 제거합니다. </table>
+
+구조물의 손상:
             <ul>
-                <li>10,000,000 hits at the landing position;</li>
-                <li>5,000,000 hits to all structures in 5x5 area.</li>
+                <li>10,000,000회 타격이 착륙 지점에서 발생했습니다.</li>
+                <li>5x5 영역 내의 모든 구조물에 5,000,000회 타격이 가해집니다.</li>
             </ul>
-            <p>Note that you can stack multiple nukes from different rooms at the same target position to increase damage.</p>
-            <p>Nuke landing does not generate tombstones and ruins, and destroys all existing tombstones and ruins in the room</p>
-            <p>If the room is in safe mode, then the safe mode is cancelled immediately, and the safe mode cooldown is reset to 0.</p>
-            <p>The room controller is hit by triggering <code>upgradeBlocked</code> period, which means it is unavailable to activate safe mode again within the next 200 ticks.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
+            <p>여러 개의 뉴클레어를 서로 다른 방에서 동일한 목표 지점으로 쌓아 피해를 증가시킬 수 있습니다.</p>
+            <p>뉴클레어의 착륙은 묘비나 유적을 생성하지 않으며, 방에 이미 존재하는 묘비나 유적을 파괴합니다.</p>
+            <p>만약 방이 안전 모드인 경우, 즉시 안전 모드가 취소되고 안전 모드 재사용 대기시간은 0으로 리셋됩니다.</p>
 
-{% page inherited/OwnedStructure.md %}
+객체 컨트롤러는 `upgradeBlocked`를 트리거하여 다음 200틱 동안 세이프 모드를 다시 활성화할 수 없습니다.{% em-text %}
 
-
-{% api_property energy 'number' '{"deprecated": true}' %}
-                                                                
-An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
-
-
-
-{% api_property energyCapacity 'number' '{"deprecated": true}' %}
-                                                                                                                
-An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
-
-
+JavaScript를 번역하지 마십시오. 대문자로만 이루어진 단어도 번역하지 마십시오. 이 기사를 한국어로 번역하십시오 .: getCapacity (RESOURCE_ENERGY)`](#Store.getCapacity).
 
 {% api_property ghodium 'number' '{"deprecated": true}' %}
-                                                                 
-An alias for [`.store[RESOURCE_GHODIUM]`](#StructureExtension.store).
-
-
+```에 대한 별칭입니다.[`. store[RESOURCE_GHODIUM]`](#StructureExtension.store).
 
 {% api_property ghodiumCapacity 'number' '{"deprecated": true}' %}
-                                                                                                                 
-An alias for [`.store.getCapacity(RESOURCE_GHODIUM)`](#Store.getCapacity).
-
-
+```에 대한 별칭입니다.[`. store. getCapacity(RESOURCE_GHODIUM)`](#Store.getCapacity).
 
 {% api_property cooldown 'number' %}
-
-
-
-The amount of game ticks until the next launch is possible.
-
+게임 틱의 수는 다음 발사가 가능한 시간입니다.
 
 {% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
-    creep.transfer(structure, RESOURCE_ENERGY);
+    creep.transfer(structure,RESOURCE_ENERGY);
 }
 ```
 
+저장하는 `Store` 객체를 나타냅니다.
 
-A [`Store`](#Store) object that contains cargo of this structure.
-
-
-
-{% api_method launchNuke 'pos' A %}
-
-```javascript
-nuker.launchNuke(new RoomPosition(20,30, 'W1N1'));
-```
-
-Launch a nuke to the specified position.
-
-{% api_method_params %}
-pos : <a href="#RoomPosition">RoomPosition</a>
-The target room position.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have enough energy and/or ghodium.
-ERR_INVALID_ARGS | The target is not a valid RoomPosition.
-ERR_INVALID_TARGET | The nuke can't be launched to the specified RoomPosition (see [Start Areas](/start-areas.html)).
-ERR_NOT_IN_RANGE | The target room is out of range.
-ERR_TIRED | This structure is still cooling down.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
-{% endapi_return_codes %}
-
-
+ERR_NOT_OWNER | 당신은 이 구조물의 소유자가 아닙니다.
+ERR_NOT_ENOUGH_RESOURCES | 구조물에 충분한 에너지와/또는 골듐이 없습니다.
+ERR_INVALID_ARGS | 목표가 유효한 RoomPosition이 아닙니다.
+ERR_INVALID_TARGET | 핵을 [시작 영역](/start-areas.html)에 발사할 수 없습니다.
+ERR_OUT_OF_RANGE | 타겟 방이 범위를 벗어났습니다.
+ERR_TIRED | 이 구조물은 아직 식고 있습니다.
+ERR_RCL_NOT_ENOUGH | Room Controller Level이 부족하여 이 구조물을 사용할 수 없습니다.

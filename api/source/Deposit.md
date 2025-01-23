@@ -1,58 +1,52 @@
-# Deposit
+# 예금
 
-<img src="img/deposit.png" alt="" align="right" />
+<img src="img/deposit. png" alt="" align="right" />
 
-A rare resource deposit needed for producing commodities. Can be harvested by creeps with a `WORK` body part. 
-Each harvest operation triggers a cooldown period, which becomes longer and longer over time.
-
-Learn more about deposits from [this article](/resources.html). 
+필수품을 생산하는데 필요한 희귀한 자원 매장. 크립들이 `WORK` 신체부를 가지고 채집할 수 있다.
+각 채취 작업은 시간이 지남에 따라 길어지는, 재사용 대기시간을 일으킨다.
+[이 글](/resources.html)에서 자원들에 관해 더 알아보세요.
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Cooldown</strong></td> 
-        <td>`0.001 * totalHarvested ^ 1.2`<td>
+        <td><strong>재사용 대기시간</strong></td>
+        <td>`0. 001 * totalHarvested ^ 1. 2`</td>
     </tr>
     <tr>
-        <td><strong>Decay</strong></td>
-        <td>50,000 ticks after appearing or last harvest operation</td>
+        <td><strong>붕괴</strong></td>
+        <td>50,000 틱이 지나면 사라진다.</td>
     </tr>
     </tbody>
 </table>
 
-{% page inherited/RoomObject.md %}
-
-{% api_property cooldown 'number' %}
+{% api_property name 'string' %}
 
 
-The amount of game ticks until the next harvest action is possible.
+The deposit name. 
 
 
-{% api_property depositType 'string' %}
+{% api_property ownerId 'integer' %}
+
+
+The owner ID, who created and owns this deposit.  You can use <a href="#Game. getObjectOwner"><code>Game. getObjectOwner</code></a> method to retrieve the object owner by its <code>id</code>. 
+
+{% api_property totalAmount 'number' %}
+
+
+The total amount of resources in this deposit, in bytes. 
+
+
+{% api_property type 'string' %}
 
 
 The deposit type, one of the following constants:
 
 ```javascript-content
-RESOURCE_MIST
-RESOURCE_BIOMASS
-RESOURCE_METAL
-RESOURCE_SILICON
+DEPOT_GAS
+DEPOT_CRYSTAL
+DEPOT_ORE
+DEPOT_SILO
 ```
 
-{% api_property id 'string' %}
-
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
-
-
-
-{% api_property lastCooldown 'number' %}
-
-
-The cooldown of the last harvest operation on this deposit.
-
-
 {% api_property ticksToDecay 'number' %}
-
-
-The amount of game ticks when this deposit will disappear.
+게임에서 이 예금이 사라질 때까지의 틱 수입니다.

@@ -1,42 +1,36 @@
-# StructureSpawn.Spawning
+# StructureSpawn 생성
+ 구체적으로 현재 생성된 크립의 세부사항은 `[`StructureSpawn.spawning`](#StructureSpawn.spawning)` 프로퍼티를 통해 알 수 있다.
 
-Details of the creep being spawned currently that can be addressed by the [`StructureSpawn.spawning`](#StructureSpawn.spawning) property.
+{% api_property directions '배열<number>' %}
 
-{% api_property directions 'array<number>' %}
-
-An array with the spawn directions, see [`StructureSpawn.Spawning.setDirections`](#StructureSpawn.Spawning.setDirections).
-
+생성 방향에 대한 배열, `[`StructureSpawn.spawning.setDirections`](#StructureSpawn.spawning.setDirections)를 참조하라.
 {% api_property name 'string' %}
 
-The name of a new creep.
-
+새로운 크립의 이름.
 {% api_property needTime 'number' %}
 
-Time needed in total to complete the spawning.
+전체적으로 생성에 필요한 시간.
+{% api_property remainingTime 'number' %}
 
-{% api_property remainingTime 'number ' %}
-
-Remaining time to go.
-
+남은 시간.
 {% api_property spawn '<a href="#StructureSpawn">StructureSpawn</a>' %}
 
-A link to the spawn.
+생성 링크.
 
-
-{% api_method cancel '' A %}
+코드를 번역하지 마십시오. JavaScript와 같은 코드를 번역하지 마십시오. 대문자로만 된 단어는 번역하지 마십시오. Translate this article into Korean : {% api_method cancel '' A %}
 
 ```javascript
 Game.spawns['Spawn1'].spawning.cancel();
 ```
 
-Cancel spawning immediately. Energy spent on spawning is not returned. 
+즉시 생성을 취소합니다. 생성에 사용된 에너지는 반환되지 않습니다.
 
 ### Return value
 
-One of the following codes:
+다음 코드 중 하나:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this spawn.
+OK | 작업이 성공적으로 예약되었습니다.
+ERR_NOT_OWNER | 당신은 이 스폰의 소유자가 아닙니다.
 {% endapi_return_codes %}
 
 {% api_method setDirections 'directions' A %}
@@ -45,28 +39,27 @@ ERR_NOT_OWNER | You are not the owner of this spawn.
 Game.spawns['Spawn1'].spawning.setDirections([RIGHT, TOP_RIGHT]);
 ```
 
-Set desired directions where the creep should move when spawned.
+원하는 방향을 설정합니다. 생성될 때 크립이 움직일 예정입니다.
 
 {% api_method_params %}
 directions : array&lt;number>
 An array with the direction constants:
-    <ul>
-        <li><code>TOP</code></li>
-        <li><code>TOP_RIGHT</code></li>
-        <li><code>RIGHT</code></li>
-        <li><code>BOTTOM_RIGHT</code></li>
-        <li><code>BOTTOM</code></li>
-        <li><code>BOTTOM_LEFT</code></li>
-        <li><code>LEFT</code></li>
-        <li><code>TOP_LEFT</code></li>
-    </ul>
+<ul>
+    <li><code>TOP</code></li>
+    <li><code>TOP_RIGHT</code></li>
+    <li><code>RIGHT</code></li>
+    <li><code>BOTTOM_RIGHT</code></li>
+    <li><code>BOTTOM</code></li>
+    <li><code>BOTTOM_LEFT</code></li>
+    <li><code>LEFT</code></li>
+    <li><code>TOP_LEFT</code></li>
+</ul>
 {% endapi_method_params %}
 
-### Return value
+### 반환값
 
-One of the following codes:
+다음 코드 중 하나:
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this spawn.
-ERR_INVALID_ARGS | The directions is array is invalid.
-{% endapi_return_codes %}
+OK | 작업이 성공적으로 예약되었습니다.
+ERR_NOT_OWNER | 사용자가 해당 스폰의 소유자가 아닙니다.
+ERR_INVALID_ARGS | 방향 배열이 올바르지 않습니다.
