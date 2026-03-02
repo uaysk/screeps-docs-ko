@@ -1,10 +1,11 @@
 doctype html
-html(lang='en')
+- var isKo = page.ui_lang === 'ko'
+html(lang=isKo ? 'ko' : 'en')
     head
         meta(charset='UTF-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-        title Screeps Documentation
+        title= isKo ? 'Screeps API 레퍼런스' : 'Screeps Documentation'
         link(rel='stylesheet' href='css/print.css' media="print")
         link(rel='stylesheet' href='css/screen.css' media="screen")
         link(rel='stylesheet' href='css/prism.css' media="screen")
@@ -21,30 +22,30 @@ html(lang='en')
     body(class="index")
         a#nav-button(href="#")
             span
-                NAV
+                = isKo ? '메뉴' : 'NAV'
                 img(src="img/navbar.png")
         .tocify-wrapper
             .logo
                 a(href="https://screeps.com/a/")
                     img(src="img/logotype_bw_animation.svg")
-                a(href="/api/")
+                a(href=isKo ? "/api/index.ko.html" : "/api/")
                     | api
                     if is_ptr()
                         | &nbsp;[ptr]
             .search
-                input.search#input-search(type="text" placeholder="Search")
+                input.search#input-search(type="text" placeholder=isKo ? "검색" : "Search")
             ul.search-results
             if !is_ptr()
-                a.back(href="/index.html")
-                    | Back to docs
+                a.back(href=isKo ? "/index.ko.html" : "/index.html")
+                    = isKo ? '문서로 돌아가기' : 'Back to docs'
                     img(src="img/link-external.svg")
             #toc
                 ul.tocify-header
-                    li.tocify-item.divider(style='pointer-events: none;') Global Objects
+                    li.tocify-item.divider(style='pointer-events: none;')= isKo ? '전역 객체' : 'Global Objects'
                 each name in config.GlobalObjects
                     != tocify(page.pages[name])
                 ul.tocify-header
-                    li.tocify-item.divider(style='pointer-events: none;') Prototypes
+                    li.tocify-item.divider(style='pointer-events: none;')= isKo ? '프로토타입' : 'Prototypes'
                 each name in config.Prototypes
                     != tocify(page.pages[name])
 

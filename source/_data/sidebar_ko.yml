@@ -1,0 +1,45 @@
+_:
+  개요: /index.html
+게임플레이:
+  소개: /introduction.html
+  크립: /creeps.html
+  컨트롤: /control.html
+  방어: /defense.html
+  리스폰: /respawn.html
+  시작 지역: /start-areas.html
+  자원: /resources.html
+  마켓: /market.html
+  NPC 침략자: /invaders.html
+  파워: /power.html
+스크립팅:
+  스크립팅 기초: /scripting-basics.html
+  전역 오브젝트: /global-objects.html
+  모듈: /modules.html
+  디버깅: /debugging.html
+  게임 루프: /game-loop.html
+  외부 커밋: /commit.html
+  동시 행동: /simultaneous-actions.html
+  CPU 제한: /cpu-limit.html
+
+기타:
+  서버 아키텍처: /architecture.html
+  공개 테스트 서버(PTR): /ptr.html
+  서드파티 도구: /third-party.html
+  인증 토큰: /auth-tokens.html
+  커뮤니티 서버: /community-servers.html
+  서비스 약관: /tos.html
+  개인정보 처리방침: /privacy-policy.html
+
+리소스:
+  블로그: http://blog.screeps.com
+  변경 로그: http://blog.screeps.com/categories/Changelogs/
+  채팅: http://chat.screeps.com
+  포럼: https://screeps.com/forum/
+
+기여 문서:
+  기여 규칙: /contributed/rules.html
+  Grunt 고급 사용법: /contributed/advanced_grunt.html
+  프로토타입 수정: /contributed/modifying-prototypes.html
+  캐싱 개요: /contributed/caching-overview.html
+  프라이빗 서버 MongoDB: /contributed/ps_ubuntu.html
+

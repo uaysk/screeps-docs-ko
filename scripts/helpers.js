@@ -12,15 +12,51 @@ function startsWith(str, start){
   return str.substring(0, start.length) === start;
 }
 
+function localizeHref(href, lang) {
+  if (!lang || lang === 'en') return href;
+  if (!href || href[0] !== '/') return href;
+
+  if (href === '/api' || href === '/api/') return '/api/index.' + lang + '.html';
+
+  // Convert .html pages to .<lang>.html (Hexo i18n file naming style).
+  if (/\.html$/.test(href) && !new RegExp('\\.' + lang + '\\.html$').test(href)) {
+    return href.replace(/\.html$/, '.' + lang + '.html');
+  }
+
+  return href;
+}
+
+function resolveLang(ctx) {
+  // Some generators incorrectly set `page.lang` to 'en' even for `*.ko.md`.
+  // Prefer inferring from the source/path suffixes first.
+  var source = (ctx && ctx.page && ctx.page.source) || '';
+  var m = source.match(/\.([a-z]{2})\.md$/);
+  if (m) return m[1];
+
+  var p = (ctx && (ctx.path || (ctx.page && ctx.page.path))) || '';
+  m = p.match(/\.([a-z]{2})\.html$/);
+  if (m) return m[1];
+
+  if (ctx && ctx.page && ctx.page.lang) return ctx.page.lang;
+
+  return 'en';
+}
+
+function getSidebarData(site, lang) {
+  // Prefer language-specific sidebar labels if present.
+  return site.data['sidebar_' + lang] || site.data.sidebar;
+}
+
 hexo.extend.helper.register('page_nav', function(){
-  var sidebar = this.site.data.sidebar;
+  var lang = resolveLang(this);
+  var sidebar = getSidebarData(this.site, lang);
   var path = this.path;
   var list = {};
   var prefix = 'sidebar.';
 
   for (var i in sidebar){
     for (var j in sidebar[i]){
-      list[sidebar[i][j]] = j;
+      list[localizeHref(sidebar[i][j], lang)] = j;
     }
   }
 
@@ -42,9 +78,11 @@ hexo.extend.helper.register('page_nav', function(){
 });
 
 hexo.extend.helper.register('doc_sidebar', function(className){
-  var sidebar = this.site.data.sidebar;
+  var lang = resolveLang(this);
+  var sidebar = getSidebarData(this.site, lang);
   var path = this.path;
-  var result = `<a href="/api/" class=api-link><span>API Reference</span><img src="/img/link-external.svg"></a>`;
+  var apiText = lang === 'ko' ? 'API 레퍼런스' : 'API Reference';
+  var result = `<a href="${localizeHref('/api/', lang)}" class=api-link><span>${apiText}</span><img src="/img/link-external.svg"></a>`;
   var self = this;
   var prefix = 'sidebar.';
 
@@ -55,9 +93,10 @@ hexo.extend.helper.register('doc_sidebar', function(className){
 
     _.each(menu, function(link, text){
       var itemClass = className + '-link';
-      if (link === '/'+path) itemClass += ' current';
+      var localizedLink = localizeHref(link, lang);
+      if (localizedLink === '/'+path) itemClass += ' current';
 
-      result += '<a href="' + link + '" class="' + itemClass + '">' + text + '</a>';
+      result += '<a href="' + localizedLink + '" class="' + itemClass + '">' + text + '</a>';
     })
   });
 
@@ -68,7 +107,7 @@ hexo.extend.helper.register('header_menu', function(className){
   var menu = this.site.data.menu;
   var result = '';
   var self = this;
-  var lang = this.page.lang;
+  var lang = resolveLang(this);
 
   _.each(menu, function(path, title){
         result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + title + '</a>';
@@ -78,19 +117,18 @@ hexo.extend.helper.register('header_menu', function(className){
 });
 
 hexo.extend.helper.register('canonical_url', function(lang){
-  var path = this.page.canonical_path;
-  if (lang && lang !== 'en') path = lang + '/' + path;
+  // `page.canonical_path` can be language-specific; derive from current path.
+  var pagePath = (this.page && this.page.path) || this.path || '';
+  var basePath = pagePath.replace(/\.([a-z]{2})\.html$/, '.html');
+  var href = '/' + basePath.replace(/^\/+/, '');
+  href = localizeHref(href, lang);
 
-  return this.config.url + '/' + path;
+  return this.config.url.replace(/\/$/, '') + href;
 });
 
 hexo.extend.helper.register('url_for_lang', function(path){
-  var lang = this.page.lang;
-  var url = this.url_for(path);
-
-  if (lang !== 'en' && url[0] === '/') url = '/' + lang + url;
-
-  return url;
+  var lang = resolveLang(this);
+  return localizeHref(this.url_for(path), lang);
 });
 
 hexo.extend.helper.register('raw_link', function(path){
@@ -145,7 +183,7 @@ hexo.extend.helper.register('lang_name', function(lang){
 });
 
 hexo.extend.helper.register('disqus_lang', function(){
-  var lang = this.page.lang;
+  var lang = resolveLang(this);
   var data = this.site.data.languages[lang];
 
   return data.disqus_lang || lang;

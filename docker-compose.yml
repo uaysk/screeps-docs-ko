@@ -1,0 +1,7 @@
+services:
+  screeps-docs:
+    build:
+      context: .
+    image: screeps-docs:latest
+    ports:
+      - "3000:3000"

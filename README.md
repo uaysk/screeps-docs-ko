@@ -28,3 +28,25 @@ You can use `generate-watch` instead of `generate` to sync changes in real time.
 npm run server
 ```
 
+## Docker (BrowserSync, port 3000)
+
+Build and run a container that generates the site (docs + API) and serves it via BrowserSync on port 3000.
+When opening `/` or `/api/`, it redirects to Korean pages by default (`/index.ko.html`, `/api/index.ko.html`).
+
+This Docker build expects `node_modules/` and `api/node_modules/` to exist in the build context. If you don't want to install Node locally, you can install deps via Docker:
+
+```bash
+docker run --rm -v "$PWD":/app -w /app node:10-buster npm ci
+docker run --rm -v "$PWD/api":/app -w /app -e npm_config_ignore_scripts=true node:10-buster npm install
+```
+
+```bash
+docker build -t screeps-docs .
+docker run --rm -p 3000:3000 screeps-docs
+```
+
+## Docker Compose
+
+```bash
+docker compose up --build
+```

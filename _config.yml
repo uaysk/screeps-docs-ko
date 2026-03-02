@@ -7,7 +7,9 @@ title: Screeps Documentation
 subtitle:
 description:
 author: Screeps
-language: en
+language:
+  - en
+  - ko
 timezone:
 
 # URL
